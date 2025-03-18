@@ -128,7 +128,7 @@ The key functionality aspects:
  
 
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Technical Design
@@ -146,16 +146,16 @@ The GitHub project can be found [here](https://github.com/users/jkingportfolio/p
 
 ### CRUD Functionality
 
-Tick It handles data with full CRUD Functionality:
+Fork Yeah handles data with full CRUD Functionality:
 <br>
-- Create -  Users can create, an account, profile, tasks, comments, packs, contact messages and watch objects.
-- Read - Users can view the tasks, comments, packs of other users and also the profiles of these users.
-- Update - Users can update their profile, password, posted tasks, packs and watch status of tasks via the interactive forms and buttons on the site.
-- Delete - Users can delete tasks, comments, packs and watch objects via the interactive buttons on the site.
+- Create -  Users can create, an account, profile, recipes & favourites.
+- Read - Users can view the instructions/descriptions and also the profiles of these users.
+- Update - Users can update their profile, password, created recipes & favourited recipes.
+- Delete - Users can delete recipes via the interactive buttons on the site.
 
 ### Colours
 
-The colour scheme for this application was kept minimal with a monochromatic theme kept in mind. 
+The colour scheme for this application was kept minimal with a fun and creative theme kept in mind. 
 
 <details>
 <summary>Colours</summary>
@@ -194,7 +194,7 @@ Balsamiq was used to create wireframes of the sites pages
 
 </details>
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Technologies Used
@@ -204,7 +204,7 @@ Balsamiq was used to create wireframes of the sites pages
 - HTML
 - CSS
 - Javascript
-  - React (17.0.2)
+  - React (22.0)
 
 ### Frameworks and Tools
 
@@ -254,14 +254,14 @@ Balsamiq was used to create wireframes of the sites pages
 | react-scroll | 1.8.9|
 
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Front-End
 
 ### React
 
-The React.js framework is an open-source JavaScript framework and library developed by Jordan Walke, a software engineer at Meta. It's used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript  
+The React.js framework is an open-source JavaScript framework and library developed by Dilsat Varli. It's used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript.
 
 I used React for this application for several reasons:
 
@@ -271,7 +271,7 @@ I used React for this application for several reasons:
 
  - React Bootstrap - When used for styling and responsiveness React Bootstrap is a great choice as it comes with ready-to-use React built components thus taking away alot of need to create commonly used code from scratch.
 
-- It is the most widely used library for developing social networking and media content applications - Sites such as Meta (formerly Facebook), Instagram, Netflix, Airbnb are all made with React.
+- It is the most widely used library for developing social networking and media content applications - Sites such as Meta (formerly Facebook), X (formerly Twitter), Instagram, Netflix, Airbnb are all made with React.
 
 - Reusability of components – Components can be created and re used throughout the app with no need to re write code for the same features.
 
@@ -358,7 +358,7 @@ There were various pages created and used in this application
 
 The API for this Front-End application was built with the Django REST Framework. The repository with a README file for the DRF Back-End can be found [here](https://github.com/jkingportfolio/CI_PP5_Tick_It_drf_api).
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Features
@@ -378,7 +378,7 @@ Authentication is a feature of the Tick It site, users will have to be authentic
 
 ### Log In
 
-Log in is a feature of the Tick It site this allows users to log in and view content relevant to their profiles, this feature also controls security and rights of the site with it requiring authentication
+Log in is a feature of the Fork Yeah site this allows users to log in and view content relevant to their profiles, this feature also controls security and rights of the site with it requiring authentication.
 
 <details>
 <summary>Log In image</summary>
@@ -389,7 +389,7 @@ Log in is a feature of the Tick It site this allows users to log in and view con
 
 ### Log Out
 
-Log Out is a feature of the Tick It site this will give users the ability to log out of their profile providing a level of security if using the same device as others.
+Log Out is a feature of the Fork Yeah site this will give users the ability to log out of their profile providing a level of security if using the same device as others.
 
 <details>
 <summary>Log Out image</summary>
@@ -400,7 +400,7 @@ Log Out is a feature of the Tick It site this will give users the ability to log
 
 ### Sign Up
 
-Sign Up is a feature of the Tick It site this will give users the ability to create an account and get involved in the site and use its features. 
+Sign Up is a feature of the Fork Yeah site this will give users the ability to create an account and get involved in the site and use its features. 
 
 <details>
 <summary>Sign Up image</summary>
@@ -411,7 +411,7 @@ Sign Up is a feature of the Tick It site this will give users the ability to cre
 
 ### Home page
 
-Home page is a feature of the Tick It site users will gain an understanding of what the site is about if not logged in and if logged in will be shown various information which is of high priority.
+Home page is a feature of the Fork Yeah site users will gain an understanding of what the site is about if not logged in and if logged in will be shown various information which is of high priority.
 
 <details>
 <summary>Home page image</summary>
@@ -422,7 +422,7 @@ Home page is a feature of the Tick It site users will gain an understanding of w
 
 ### Nav Bar
 
-Nav Bar is a feature of the Tick It site giving users the ability to seamlessly navigate the site 
+Nav Bar is a feature of the Fork Yeah site giving users the ability to seamlessly navigate the site.
 
 <details>
 <summary>Nav Bar image</summary>
@@ -433,7 +433,7 @@ Nav Bar is a feature of the Tick It site giving users the ability to seamlessly 
 
 ### Profile Section
 
-Profile Section is a feature of the Tick It site giving users some personality on the platform and also grouping all their relevant information in one central point.  
+Profile Section is a feature of the Fork Yeah site giving users some personality on the platform and also grouping all their relevant information in one central point.  
 
 <details>
 <summary>Profile Section image</summary>
@@ -444,7 +444,7 @@ Profile Section is a feature of the Tick It site giving users some personality o
 
 ### Profile Tabs
 
-Profile tabs is a feature of the Tick It site giving users the ability to view tasks, packs and tasks assigned to the user of the currently view profile.  
+Profile tabs is a feature of the Fork Yeah site giving users the ability to view favourites and created recipes to the user of the currently view profile.  
 
 <details>
 <summary>Profile Section image</summary>
@@ -455,7 +455,7 @@ Profile tabs is a feature of the Tick It site giving users the ability to view t
 
 ### Edit Profile
 
-Edit Profile is a feature of the Tick It site giving users the ability to update their profile with their latest information 
+Edit Profile is a feature of the Fork Yeah site giving users the ability to update their profile with their latest information. 
 
 <details>
 <summary>Edit Profile image</summary>
@@ -467,7 +467,7 @@ Edit Profile is a feature of the Tick It site giving users the ability to update
 
 ### Change Password
 
-Change Password is a feature of the Tick It site giving users the ability to change their password if they so desire. 
+Change Password is a feature of the Fork Yeah site giving users the ability to change their password if they so desire. 
 
 <details>
 <summary>Change Password image</summary>
@@ -477,9 +477,9 @@ Change Password is a feature of the Tick It site giving users the ability to cha
 
 - Covered in user stories: 13 & 17
 
-### Create task
+### Create recipe
 
-Create task is a feature of the Tick It site giving users the ability to perform the main functionality of the site which is to create a task based from a form.
+Create recipe is a feature of the Fork Yeah site giving users the ability to perform the main functionality of the site which is to create a new recipe based from a form.
 
 <details>
 <summary>Create task image</summary>
@@ -492,9 +492,9 @@ Create task is a feature of the Tick It site giving users the ability to perform
 
 - Covered in user stories: 12, 26
 
-### Delete task
+### Delete recipe
 
-Delete task is a feature of the Tick It site giving users the ability to delete their owned tasks at their will. 
+Delete recipe is a feature of the Fork Yeah site giving users the ability to delete their owned tasks at their will. 
 
 <details>
 <summary>Delete task image</summary>
@@ -503,9 +503,9 @@ Delete task is a feature of the Tick It site giving users the ability to delete 
 
 - Covered in user stories: 7, 12, 32
 
-### Edit task
+### Edit recipe
 
-Edit task is a feature of the Tick It site giving users the ability to edit their owned tasks at their will via a form.  
+Edit recipe is a feature of the Fork Yeah site giving users the ability to edit their owned recipes at their will via buttons.  
 
 <details>
 <summary>Edit task image</summary>
@@ -514,76 +514,31 @@ Edit task is a feature of the Tick It site giving users the ability to edit thei
 
 - Covered in user stories: 8, 12
 
-### Task comment
-
-Task comment is a feature of the Tick It site giving users the ability to read or create comments on tasks.
-
-<details>
-<summary>Task comment image</summary>
-<img src="docs/features/task-comment.png">
-</details>
-
-- Covered in user stories: 9
-
-### Create task comment
-
-Create task comment is a feature of the Tick It site giving users the ability to create comments on tasks. This will then display in order of time create and have the users profile image and username next to it. 
-
-<details>
-<summary>Create task comment image</summary>
-<img src="docs/features/create-task-comment.png">
-</details>
-
-- Covered in user stories: 10
-
-### Edit task comment
-
-Edit task comment is a feature of the Tick It site giving users the ability to edit comments that they own and posted themselves.
-
-<details>
-<summary>Edit task comment image</summary>
-<img src="docs/features/edit-task-comment.png">
-</details>
-
-- Covered in user stories: 11
-
-### Delete task comment
-
-Delete task comment is a feature of the Tick It site giving users the ability to delete comments that they own.
-
-<details>
-<summary>Delete task comment image</summary>
-<img src="docs/features/delete-task-comment.png">
-</details>
-
-- Covered in user stories: 11, 32
-
-
 ### Task list
 
-Task list is a feature of the Tick It site giving users the ability to view all tasks that have been created on the app.
+Favourites list is a feature of the Fork Yeah site giving users the ability to view all favourited recipes that have been created on the app & saved onto the users account.
 
 <details>
-<summary>Task list image</summary>
+<summary>Favourties image</summary>
 <img src="docs/features/tasks-list.png">
 </details>
 
 - Covered in user stories: 21, 24
 
-### Task Search
+### Recipe Search
 
-Task Search is a feature of the Tick It site giving users the ability to search for tasks or users via a keyword query search bar. 
+Recipe Search is a feature of the Fork Yeah site giving users the ability to search for recipes via a keyword query search bar. 
 
 <details>
-<summary>Task Search image</summary>
+<summary>Recipe Search image</summary>
 <img src="docs/features/search-bar-1.png">
 </details>
 
 - Covered in user stories: 21, 34
 
-### Watch / Unwatch task
+### Favourite / Unfavourite recipe
 
-Watch / Unwatch task is a feature of the Tick It site giving users the ability to watch and unwatch tasks which if watched will be displayed in the users watched list, giving the user a means for keeping track of specific tasks. 
+Favourite / Unfavourite ecipe is a feature of the Fork Yeah site giving users the ability to favourite and unfavourite recipes which if favourited will be displayed in the users favourites list, giving the user a means for keeping track of preferred recipes. 
 
 <details>
 <summary>Watch / Unwatch task image</summary>
@@ -594,34 +549,9 @@ Watch / Unwatch task is a feature of the Tick It site giving users the ability t
 
 - Covered in user stories: 4
 
-### Watch / Unwatch button
-
-Watch / Unwatch button is a feature of the Tick It site giving users the ability to add or remove a watch object to a specific task.
-
-<details>
-<summary>Watch / Unwatch button image</summary>
-<img src="docs/features/watch-task-1.png">
-<img src="docs/features/watch-task-2.png">
-<img src="docs/features/watch-task-3.png">
-</details>
-
-- Covered in user stories: 3, 4
-
-
-### Watched list
-
-Watched list is a feature of the Tick It site giving users the ability to view all of their watched tasks in one central place.
-
-<details>
-<summary>Watched list image</summary>
-<img src="docs/features/watched-list.png">
-</details>
-
-- Covered in user stories: 5
-
 ### Input Validation
 
-Input Validation is a feature of the Tick It used throughout the site for form inputs. 
+Input Validation is a feature of the Fork Yeah used throughout the site for form inputs. 
 
 <details>
 <summary>Input Validation image</summary>
@@ -630,20 +560,9 @@ Input Validation is a feature of the Tick It used throughout the site for form i
 
 - Covered in user stories: 1, 14, 30
 
-### Task Count
-
-Task Count is a feature of the Tick It site giving users the ability to display the total amount of tasks they have created and display it on their profile page. 
-
-<details>
-<summary>Task Count image</summary>
-<img src="docs/features/task-count.png">
-</details>
-
-- Covered in user stories: 17
-
 ### Responsiveness
 
-Responsiveness is a feature which can be seen through the Tick It site giving users the ability to view the site on various display sizes whilst still having an enjoyable user experience.
+Responsiveness is a feature which can be seen through the Fork Yeah site giving users the ability to view the site on various display sizes whilst still having an enjoyable user experience.
 
 <details>
 <summary>Responsiveness image</summary>
@@ -655,7 +574,7 @@ Responsiveness is a feature which can be seen through the Tick It site giving us
 
 ### Search Bar
 
-Search Bar is a feature of the Tick It site giving users the ability to search for tasks or users based on key word input. 
+Search Bar is a feature of the Fork Yeah site giving users the ability to search for tasks or users based on key word input. 
 
 <details>
 <summary>Search Bar image</summary>
@@ -687,44 +606,21 @@ Error pages is a feature of the Tick It site which will display a 404 error page
 
 - Covered in user stories: 35
 
-### Site Feedback
+### Create Recipes
 
-Site Feedback is a feature of the Tick It site which will presented to users at various times in the form of successful html pages and modal messages.
-
-<details>
-<summary>Site Feedback image</summary>
-<img src="docs/features/feedback-1.png">
-<img src="docs/features/feedback-2.png">
-</details>
-
-- Covered in user stories: 23
-
-### Users list
-
-Users list is a feature of the Tick It site giving users the ability to view all users signed up to the site.
+Create Recipe is a feature of the Fork Yeah site giving users the ability to add recipes.
 
 <details>
-<summary>Users list image</summary>
-<img src="docs/features/user-list.png">
-</details>
-
-- Covered in user stories: 25
-
-### Create Pack
-
-Create Pack is a feature of the Tick It site giving users the ability to add tasks to a pack, thus grouping relevant tasks together in one central location.
-
-<details>
-<summary>Create Pack image</summary>
+<summary>Create Recipe image</summary>
 <img src="docs/features/create-pack-1.png">
 <img src="docs/features/create-pack-2.png">
 </details>
 
 - Covered in user stories: 27
 
-### Edit Pack
+### Edit Recipe
 
-Edit Pack is a feature of the Tick It site giving users the ability to add or remove tasks from the pack and also update the title and pack description if they own that particular pack via a form.
+Edit Recipe is a feature of the Fork Yeah site giving users the ability to add or remove ingredients from the instructions and also update the title and recipe description if they own that particular recipe via a form.
 
 <details>
 <summary>Edit Pack image</summary>
@@ -734,12 +630,12 @@ Edit Pack is a feature of the Tick It site giving users the ability to add or re
 
 - Covered in user stories: 29
 
-### Delete Pack
+### Delete Recipe
 
-Delete Pack is a feature of the Tick It site giving users the ability to delete an owned pack.
+Delete Recipe is a feature of the Fork Yeah site giving users the ability to delete an owned recipe.
 
 <details>
-<summary>Delete Pack image</summary>
+<summary>Delete Recipe image</summary>
 <img src="docs/features/delete-pack-1.png">
 <img src="docs/features/delete-pack-2.png">
 </details>
@@ -755,13 +651,21 @@ Although alot of effort was put into this project, due to time constraints there
 - Password recovery
   - Forgotten password option to recover access to the account using a one time link via email
 - Account creation via socials
-  - Allow user authentication with already existing accounts, e.g. LinkedIn, Google, etc. 
+  - Allow user authentication with already existing accounts, e.g. Apple, Google, Facebook etc. 
 - A notifications feature
-  - A feature to have notifications related to tasks you are involed in / own and if their completion status has been updated.
-- Involvement specific edit rights
-  - Users to be able to make specific edits to a task dependant on their write rights. For example a user who is assigned a task could set it completion status to complete but wouldnt be allowed to edit the task body text or due date.
+  - A feature to have notifications related to recipes you are interested in / own and if other users' recipe status has been updated.
+- Accesssibility for impaired users
+  - A feature to provide the support for impaired users to make the site more user friendly and inclusive despite physical constraints.
+- Interraction with other users
+  - A feature that allows users to communicate and share / engage with eachother to make the site more enticing, providing individual experiences i.e. receiving feedback when submitting a new recipe.
+- Editing / Deleting comments on recipes
+  - A feature that allows the user of created recipes to edit or delete their post comments.
+- Two-step verification
+  - A feature that allows users a two-step verification process to enhance user safety.
+- Instructions
+ - Implement visual steps into the ingreditents box rather than having just writing.
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Validation 
@@ -1200,7 +1104,7 @@ The WAVE WebAIM web accessibility evaluation tool was used to test the websites 
 
 
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Testing
@@ -1687,7 +1591,7 @@ To avoid unnecessary repetition of images, only the feature being referred to wi
 </details>
 
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Bugs
@@ -1704,7 +1608,7 @@ To avoid unnecessary repetition of images, only the feature being referred to wi
 | Pack details not displaying list of associated tasks due to 500 error | Due to not having control over the status of elephant SQLs servers I had to leave this as a known bug. I did implement code to retry if a 500 error is returned however sometimes this exceeds the max retry of 3 times. This bug still allows functionality although the user experience is slightly impacted due to having to refresh the page manually in the occasional instances in which this happens |
 
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Deployment
@@ -1813,7 +1717,7 @@ You can make a local clone of a repository via the following steps:
 8. `$ clone https://github.com/jkingportfolio/ci_pp5_tick_it_react`
 9. Now press enter and the local clone will be created at the desired local location
 
-##### Back to [top](#tick-it)
+##### Back to [top](#fork-yeah)
 
 
 ## Credits
@@ -1853,9 +1757,9 @@ Images such as no results found image used in this site were created by myself u
 ## Acknowledgements
 
 I would like to also thank the following:
-- My wife and family for their support and feedback whilst doing this project
-- Code Institute tutor support who helped with the many issues I had during this project.
+- My family for their support and feedback whilst doing this project.
+- My fellow friend, ally and CI Alumni Vasileios Tsimourdagkas for his ongoing support, kmowledge and experience thoughout this project.
 - My Code Institute mentor Mo Shami for his guidance through this project.
 
 
-[Back to Top](#tick-it)
+[Back to Top](#fork-yeah)
