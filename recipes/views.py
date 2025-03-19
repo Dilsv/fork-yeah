@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, filters
 from .models import Recipe, Ingredient
 from .serializers import RecipeSerializer, IngredientSerializer
 from recipe_drf.permissions import IsOwnerOrReadOnly
@@ -7,6 +7,8 @@ from recipe_drf.permissions import IsOwnerOrReadOnly
 class IngredientListCreateView(generics.ListCreateAPIView):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
 
 
 class RecipeListCreateView(generics.ListCreateAPIView):
