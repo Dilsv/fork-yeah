@@ -2,6 +2,7 @@ from rest_framework import generics, filters
 from .models import Recipe, Ingredient
 from .serializers import RecipeSerializer, IngredientSerializer
 from recipe_drf.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class IngredientListCreateView(generics.ListCreateAPIView):
@@ -15,6 +16,8 @@ class RecipeListCreateView(generics.ListCreateAPIView):
     queryset = Recipe.objects.all().order_by('-created_at')
     serializer_class = RecipeSerializer
     permission_classes = [IsOwnerOrReadOnly]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['ingredients']
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
