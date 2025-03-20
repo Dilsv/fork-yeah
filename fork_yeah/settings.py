@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'profiles',
     'fork_yeah',
     'recipes',
+    'favourites',
 ]
 
 MIDDLEWARE = [
