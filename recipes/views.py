@@ -1,7 +1,7 @@
 from rest_framework import generics, filters
 from .models import Recipe, Ingredient
 from .serializers import RecipeSerializer, IngredientSerializer
-from recipe_drf.permissions import IsOwnerOrReadOnly
+from fork_yeah.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 
 
