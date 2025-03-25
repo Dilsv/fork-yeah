@@ -30,5 +30,5 @@ urlpatterns = [
     )),
     path('', include('profiles.urls')),
     path('', include('favourites.urls')),
-    path('', include('recipes.urls')),
+    # path('', include('recipes.urls')),
 ]
