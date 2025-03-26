@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import NavBar from './components/NavBar';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from './pages/errors/NotFound';
+import "./api/axiosDefault.js";
 
 function App() {
   return (
