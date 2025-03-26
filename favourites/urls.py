@@ -1,9 +1,7 @@
 from django.urls import path
-from .views import FavouriteListCreateView, FavouriteDeleteView
+from favourites import views
 
 urlpatterns = [
-    path('favourites/', FavouriteListCreateView.as_view(),
-         name='favourite-list-create'),
-    path('favourites/<int:pk>/', FavouriteDeleteView.as_view(),
-         name='favourite-delete'),
+    path("favourites/", views.FavouritesList.as_view()),
+    path("favourites/<int:pk>/", views.FavouritesDetail.as_view()),
 ]
