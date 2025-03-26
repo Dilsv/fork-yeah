@@ -7,7 +7,7 @@ import SignUpForm from './pages/auth/SignUpForm.js';
 import SignInForm from './pages/auth/SignInForm';
 import CreateRecipeForm from './pages/recipes/CreateRecipeForm';
 import RecipePage from './pages/recipes/RecipePage';
-import RecipesPage from './pages/recipes/RecipesPage';
+import RecipesPage from './pages/recipes/RecipesPage.js';
 
 
 function App() {
