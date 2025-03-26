@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault.js";
 import { Recipe } from "./Recipe";
 
-export const RecipePage = () => {
+const RecipePage = () => {
     const { id } = useParams();
     const history = useHistory();
     const [recipe, setRecipe] = useState({ results: [] });
@@ -33,3 +33,5 @@ export const RecipePage = () => {
         </>
     )
 }
+
+export default RecipePage;
