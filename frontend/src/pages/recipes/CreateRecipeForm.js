@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -10,6 +10,7 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import upload from "../../assets/upload.png";
 import { axiosReq } from "../../api/axiosDefault.js";
+import useFetchIngredients from "../../hooks/useFetchIngredients";
 
 const CreateRecipeForm = () => {
   const [recipeData, setRecipeData] = useState({
@@ -21,22 +22,12 @@ const CreateRecipeForm = () => {
   });
   const { title, description, instructions, image, category } = recipeData;
   const [errors, setErrors] = useState(null);
-  const [ingredients, setIngredients] = useState([]);
+
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const imageInput = useRef(null);
   const history = useHistory();
 
-  useEffect(() => {
-    const fetchIngredients = async () => {
-      try {
-        const response = await axiosReq.get("/ingredients/");
-        setIngredients(response.data.results);
-      } catch (error) {
-        console.error("Error fetching ingredients", error);
-      }
-    };
-    fetchIngredients();
-  }, []);
+  const { ingredients } = useFetchIngredients();
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
