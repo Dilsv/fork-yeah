@@ -29,7 +29,7 @@ class RecipeListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["category"]
-    search_fields = ['title', 'description', 'ingredients']
+    search_fields = ['title', 'recipe_ingredients__ingredient__name']
 
     def perform_create(self, serializer):
         """
