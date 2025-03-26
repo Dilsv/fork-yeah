@@ -4,14 +4,15 @@ from recipes.models import Recipe
 
 
 class Favourite(models.Model):
-    user = models.ForeignKey(
+    owner = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='favourites')
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='favourited_by')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'recipe')
+        unique_together = ('owner', 'recipe')
+        ordering = ('-owner', '-created_at')
 
     def __str__(self):
-        return f"{self.user.username} - {self.recipe.title}"
+        ordering = ('-owner', '-created_at')
