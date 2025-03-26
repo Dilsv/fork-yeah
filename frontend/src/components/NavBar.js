@@ -32,6 +32,13 @@ const NavBar = () => {
   const loggedInIcons = (
     <>
       <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/recipes/create"
+      >
+        <i className="far fa-plus-square"></i>Create Recipe
+      </NavLink>
+      <NavLink
         to="/favourites"
         className={styles.NavLink}
         activeClassName={styles.Active}
