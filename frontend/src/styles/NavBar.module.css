@@ -1,0 +1,15 @@
+.NavBar {
+    background-color: #0FA3B1;
+    max-width: 100vw;
+  }
+  
+  .NavLink {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 8px 5px;
+  }
+  
+  .NavLink:hover {
+    color: #B5E2FA;
+  }
