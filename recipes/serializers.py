@@ -90,3 +90,64 @@ class RecipeSerializer(serializers.ModelSerializer):
 
         return recipe
 
+
+def update(self, instance, validated_data):
+    """
+    Custom update method to update RecipeIngredients while ensuring
+    the recipe ID is included.
+    """
+    ingredients_data = self.context["request"].data.get("ingredients", [])
+
+    # Update the main Recipe fields
+    instance = super().update(instance, validated_data)
+
+    # Validate ingredients input
+    if not isinstance(ingredients_data, list):
+        raise serializers.ValidationError(
+            {"ingredients": "This field must be a list."})
+
+    # Track existing ingredients to avoid duplicates
+    existing_ingredients = {
+        ri.ingredient.id: ri for ri in instance.recipe_ingredients.all()}
+
+    # Track updated ingredient IDs
+    updated_ingredient_ids = set()
+
+    for ing in ingredients_data:
+        ingredient_id = ing.get("ingredient")
+        quantity = ing.get("quantity")
+        unit = ing.get("unit")
+
+        try:
+            ingredient = Ingredient.objects.get(id=ingredient_id)
+
+            if ingredient_id in existing_ingredients:
+                # Update existing RecipeIngredient
+                recipe_ingredient = existing_ingredients[ingredient_id]
+                recipe_ingredient.quantity = quantity
+                recipe_ingredient.unit = unit
+                recipe_ingredient.save()
+            else:
+                ingredient = Ingredient.objects.get(id=ingredient_id)
+                # Create new RecipeIngredient
+                RecipeIngredient.objects.create(
+                    recipe_id=instance.id,
+                    ingredient=ingredient,
+                    quantity=quantity,
+                    unit=unit
+                )
+
+        except Ingredient.DoesNotExist:
+            raise serializers.ValidationError(
+                {"ingredient": f"Invalid ingredient ID: {ingredient_id}"}
+            )
+
+    ingredients_to_delete = [
+        ri for ing_id, ri in existing_ingredients.items()
+        if ing_id not in updated_ingredient_ids
+    ]
+
+    for ri in ingredients_to_delete:
+        ri.delete()
+
+    return instance
