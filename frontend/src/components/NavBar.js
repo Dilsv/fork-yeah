@@ -29,7 +29,7 @@ const NavBar = () => {
                     <Nav className="ms-auto">
                         <NavLink exact to="/" className={styles.NavLink} activeClassName={styles.Active}><i className='fas fa-home'><span>Home</span></i></NavLink>
                         <NavLink to="/recipes" className={styles.NavLink} activeClassName={styles.Active}><i className='fa-solid fa-bowl-food'><span>Recipes</span></i></NavLink>
-                        <NavLink to="/favourites" className={styles.NavLink} activeClassName={styles.Active}><i class="fa-solid fa-star"><span>Favourites</span></i></NavLink>
+                        <NavLink to="/favourites" className={styles.NavLink} activeClassName={styles.Active}><i className="fa-solid fa-star"><span>Favourites</span></i></NavLink>
                         <NavLink to="/signin" className={styles.NavLink} activeClassName={styles.Active}><i className='fas fa-sign-in-alt'><span>Sign in</span></i></NavLink>
                         <NavLink to="/signup" className={styles.NavLink} activeClassName={styles.Active}><i className='fas fa-user-plus'><span>Sign up</span></i></NavLink>
                     </Nav>
