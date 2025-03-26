@@ -1,5 +1,5 @@
 """
-URL configuration for fork_yeah project.
+URL configuration for recipe_drf project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,20 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.urls import path, include
 from .views import root_route, logout_route
 
 urlpatterns = [
     path("", root_route),
     path('admin/', admin.site.urls),
-    path("api-auth/", include("rest_framework.urls")),
-    path("dj-rest-auth/logout/", logout_route),
-    path("dj-rest-auth/", include("dj_rest_auth.urls")),
-    path("dj-rest-auth/registration/", include(
+    path("api/api-auth/", include("rest_framework.urls")),
+    path("api/dj-rest-auth/logout/", logout_route),
+    path("api/dj-rest-auth/", include("dj_rest_auth.urls")),
+    path("api/dj-rest-auth/registration/", include(
         "dj_rest_auth.registration.urls"
     )),
-    path('', include('profiles.urls')),
-    path('', include('favourites.urls')),
-    path('', include('recipes.urls')),
+    path('api/', include('profiles.urls')),
+    path('api/', include('recipes.urls')),
+    path('api/', include('favourites.urls')),
 ]
