@@ -27,7 +27,7 @@ class FavouriteSerializer(serializers.ModelSerializer):
         If it is not, it will create the favourites object.
         """
 
-        if self.context["request"].user == data["recipe"].author:
+        if self.context["request"].user == data["recipe"].owner:
             raise serializers.ValidationError(
                 "You cannot add your own recipe")
 
