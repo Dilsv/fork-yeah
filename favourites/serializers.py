@@ -21,10 +21,10 @@ class FavouriteSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        Checks for duplicate recipes in the user's favoutites.
+        Checks for duplicate recipes in the user's favourites.
         Checks if owner is the same as the user.
         If it is, it will raise an error.
-        If it is not, it will create the favoutites object.
+        If it is not, it will create the favourites object.
         """
 
         if self.context["request"].user == data["recipe"].author:
