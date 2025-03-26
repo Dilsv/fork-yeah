@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/esm/Container';
 import styles from './App.module.css';
 import NavBar from './components/NavBar';
 import { Route, Switch } from 'react-router-dom';
+import NotFound from './pages/errors/NotFound';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Route exact path="/signup" render={() => <h1>Sign up</h1>} />
           <Route exact path="/recipes" render={() => <h1>Recipes</h1>} />
           <Route exact path="/favourites" render={() => <h1>Favourites</h1>} />
-          <Route render={() => <p>404 Not Found</p>} />
+          <Route render={() => <NotFound /> } />
 
 
         </Switch>

@@ -1,25 +1,42 @@
-import React from "react";
+import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/logo.png';
 import styles from '../styles/NavBar.module.css';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
-  return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
-        <Container>
-      <Navbar.Brand href="#home"><img src={logo} alt="logo" height="45"/></Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto text-left">
-          <Nav.Link><i className="fas fa-home"></i>Home</Nav.Link>
-          <Nav.Link><i className="fas fa-sign-in-alt"></i>Sign In</Nav.Link>
-          <Nav.Link><i className="fas fa-user-plus"></i>Sign Up</Nav.Link>
-        </Nav>
-      </Navbar.Collapse></Container>
-    </Navbar>
-  );
-};
+    return (
+        <Navbar
+            expand="md"
+            fixed="top"
+            id="navBar"
+            className={styles.NavBar}
+        >
+            <Container fluid>
+                <NavLink to="/" className={styles.NavLink}>
+                    <Navbar.Brand className='me-auto'>
+                        <img
+                            src={logo}
+                            alt="logo"
+                            height={150}
+                        ></img>
+                    </Navbar.Brand>
+                </NavLink>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ms-auto">
+                        <NavLink exact to="/" className={styles.NavLink} activeClassName={styles.Active}><i className='fas fa-home'><span>Home</span></i></NavLink>
+                        <NavLink to="/recipes" className={styles.NavLink} activeClassName={styles.Active}><i className='fa-solid fa-bowl-food'><span>Recipes</span></i></NavLink>
+                        <NavLink to="/favourites" className={styles.NavLink} activeClassName={styles.Active}><i class="fa-solid fa-star"><span>Favourites</span></i></NavLink>
+                        <NavLink to="/signin" className={styles.NavLink} activeClassName={styles.Active}><i className='fas fa-sign-in-alt'><span>Sign in</span></i></NavLink>
+                        <NavLink to="/signup" className={styles.NavLink} activeClassName={styles.Active}><i className='fas fa-user-plus'><span>Sign up</span></i></NavLink>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    )
+}
 
-export default NavBar;
+export default NavBar
