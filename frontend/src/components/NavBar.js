@@ -5,25 +5,38 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/logo.png';
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
+import axios from 'axios';
+import { removeTokenTimestamp } from '../utils/utils';
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
+
+    const handleSignOut = async () => {
+        try {
+            await axios.post("dj-rest-auth/logout/");
+            setCurrentUser(null);
+            removeTokenTimestamp();
+        } catch (err) {
+            // console.log(err);
+        }
+    };
 
     const loggedInIcons = (
         <>
             <NavLink to="/favourites" className={styles.NavLink} activeClassName={styles.Active}>
                 <i className="fa-solid fa-star"><span>Favourites</span></i>
             </NavLink>
-            <NavLink className={styles.NavLink} to="/" onClick={() => {}}>
+            <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
                 <i className="fas fa-sign-out-alt"><span>Sign out</span></i>
             </NavLink>
             <NavLink
                 className={styles.NavLink}
                 to={`/profiles/${currentUser?.profile_id}`}
             >
-                <Avatar src={currentUser?.profile_image} text={currentUser.username} height={50} />
+                <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={50} />
             </NavLink>
         </>
     );
