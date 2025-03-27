@@ -14,6 +14,7 @@ import EditRecipeForm from './pages/recipes/EditRecipeForm';
 import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UsernameForm from './pages/profiles/UsernameForm';
+import UserPasswordForm from './pages/profiles/UserPassword';
 import NotFound from './pages/errors/NotFound';
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
+          <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
 
           <Route render={() => <NotFound />} />
 
