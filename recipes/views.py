@@ -9,9 +9,11 @@ from .serializers import (
 )
 from fork_yeah.permissions import IsOwnerOrReadOnly
 
+
 class CategoryListView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
 
 class IngredientListCreateView(generics.ListCreateAPIView):
     """
@@ -28,7 +30,8 @@ class RecipeListCreateView(generics.ListCreateAPIView):
     """
     View to list and create recipes.
     """
-    queryset = Recipe.objects.all().order_by('-created_at')
+    queryset = Recipe.objects.all().filter(
+        approved=True).order_by('-created_at')
     serializer_class = RecipeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
