@@ -11,6 +11,7 @@ import RecipesPage from './pages/recipes/RecipesPage.js';
 import FavouritesPage from './pages/recipes/FavouritesPage';
 import UserRecipes from './pages/recipes/UserRecipes';
 import EditRecipeForm from './pages/recipes/EditRecipeForm';
+import NotFound from './pages/errors/NotFound';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/recipes/:id/edit" render={() => <EditRecipeForm />} />
           <Route exact path="/my-recipes" render={() => <UserRecipes />} />
           <Route exact path="/favourites" render={() => <FavouritesPage /> } />
+          <Route render={() => <NotFound />} />
 
         </Switch>
       </Container>
