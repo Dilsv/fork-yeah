@@ -78,22 +78,20 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'cloudinary',
     'rest_framework',
     'django_filters',
     'rest_framework.authtoken',
     'dj_rest_auth',
     'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
-
     'profiles',
-    'fork_yeah',
     'recipes',
     'favourites',
 ]
@@ -139,12 +137,16 @@ WSGI_APPLICATION = 'fork_yeah.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if "DEV" in os.environ:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+else:
+    DATABASES = {"default": dj_database_url.parse(
+        os.environ.get("DATABASE_URL"))}
 
 
 # Password validation
