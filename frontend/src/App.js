@@ -10,6 +10,7 @@ import RecipePage from './pages/recipes/RecipePage';
 import RecipesPage from './pages/recipes/RecipesPage.js';
 import FavouritesPage from './pages/recipes/FavouritesPage';
 import UserRecipes from './pages/recipes/UserRecipes';
+import EditRecipeForm from './pages/recipes/EditRecipeForm';
 
 
 function App() {
@@ -21,9 +22,10 @@ function App() {
           <Route exact path="/" render={() => <h1>Home Page</h1>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/recipes" render={() => <RecipesPage />} />
           <Route exact path="/recipes/create" render={() => <CreateRecipeForm />} />
           <Route exact path="/recipes/:id" render={() => <RecipePage />} />
-          <Route exact path="/recipes" render={() => <RecipesPage />} />
+          <Route exact path="/recipes/:id/edit" render={() => <EditRecipeForm />} />
           <Route exact path="/my-recipes" render={() => <UserRecipes />} />
           <Route exact path="/favourites" render={() => <FavouritesPage /> } />
 
