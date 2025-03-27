@@ -46,26 +46,29 @@ const RecipesPage = () => {
 
   return (
     <Container className="mt-5">
-      <i className={`fas fa-search ${styles.SearchIcon}`} />
       <Form className={styles.SearchBar} onSubmit={(e) => e.preventDefault()}>
-        <Form.Control
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          type="text"
-          placeholder="Search"
-        />
-        <Form.Select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="text-capitalize"
-        >
-          <option value="">All</option>
-          {categories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.name}
-            </option>
-          ))}
-        </Form.Select>
+        <Form.Group className="mb-3 d-flex align-items-center justify-content-between">
+          <i className={`fas fa-search ${styles.SearchIcon}`} />
+          <Form.Control
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            type="text"
+            placeholder="Search"
+            className="me-1"
+          />
+          <Form.Select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="text-capitalize ms-auto w-25"
+          >
+            <option value="">All categories </option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
       </Form>
       <hr />
 
@@ -77,7 +80,7 @@ const RecipesPage = () => {
             hasMore={!!recipes.next}
             loader={<Asset spinner />}
           >
-            <Row className="justify-content-start align-items-center">
+            <Row className="justify-content-start align-items-center gx-2 mx-0">
               {recipes.results.map((recipe) => (
                 <Col key={recipe.id} className="mb-2" md={4}>
                   <Link
@@ -91,7 +94,7 @@ const RecipesPage = () => {
                       <Card.Img
                         src={recipe.image}
                         alt={recipe.title}
-                        className={`${appStyles.Image}`}
+                        className={`${appStyles.Image} pb-1`}
                         height={200}
                       />
                       <Card.Footer>{recipe.category}</Card.Footer>
