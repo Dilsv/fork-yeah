@@ -17,10 +17,6 @@ const useFetchFavourites = (props) => {
     const fetchFavourites = async () => {
       try {
         const { data } = await axiosReq.get(`/favourites/`);
-        // Map through the favourites data and return the recipes that match the current user's username.
-        const favourites = data.results.map(
-          (result) => result.owner === currentUser?.username && result.recipe
-        );
         // Find the favourites id that matches the current user's username and the recipe id.
         const favouritesId = data.results.find(
           (result) =>
@@ -36,7 +32,7 @@ const useFetchFavourites = (props) => {
           if (favouritesId && favouritesId.owner === currentUser?.username) {
             setAddedToList(true);
           }
-          setRecipeId(favourites);
+          setRecipeId(data.results.map((result) => result.recipe));
         }
       } catch (err) {
         // console.log(err);
