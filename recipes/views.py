@@ -1,13 +1,17 @@
 from rest_framework import generics, filters, permissions
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Recipe, Ingredient, RecipeIngredient
+from .models import Recipe, Ingredient, RecipeIngredient, Category
 from .serializers import (
     RecipeSerializer,
     IngredientSerializer,
-    RecipeIngredientSerializer
+    RecipeIngredientSerializer,
+    CategorySerializer,
 )
 from fork_yeah.permissions import IsOwnerOrReadOnly
 
+class CategoryListView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 class IngredientListCreateView(generics.ListCreateAPIView):
     """
