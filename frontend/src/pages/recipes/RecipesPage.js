@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault.js";
 import Asset from "../../components/Asset";
 import Form from "react-bootstrap/Form";
 import styles from "../../styles/RecipesPage.module.css";
 import useFetchCategories from "../../hooks/useFetchCategories.js";
+import appStyles from "../../App.module.css";
 
 const RecipesPage = () => {
   const [recipes, setRecipes] = useState([{ results: [] }]);
@@ -29,6 +34,7 @@ const RecipesPage = () => {
       }
     };
     setHasLoaded(false);
+    fetchRecipes();
     const timer = setTimeout(() => {
       fetchRecipes();
     }, 1000);
@@ -63,14 +69,28 @@ const RecipesPage = () => {
       <hr />
 
       {hasLoaded ? (
-        <div>
-          {recipes.results.map((recipe) => (
-            <div key={recipe.id}>
-              <h2>{recipe.title}</h2>
-              <p>{recipe.category}</p>
-            </div>
-          ))}
-        </div>
+        recipes.results.length ? (
+          <Row className="justify-content-around">
+            {recipes.results.map((recipe) => (
+              <Col key={recipe.id} className="mb-2" md={4}>
+                <Card>
+                  <Card.Title className="text-center pt-1">
+                    {recipe.title}
+                  </Card.Title>
+                  <Image
+                    src={recipe.image}
+                    alt={recipe.title}
+                    className={`${appStyles.Image}`}
+                    height={200}
+                  />
+                  <Card.Footer>{recipe.category}</Card.Footer>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <Asset message="No recipes found" />
+        )
       ) : (
         <Asset spinner message="Loading recipes..." />
       )}
