@@ -12,6 +12,7 @@ import FavouritesPage from './pages/recipes/FavouritesPage';
 import UserRecipes from './pages/recipes/UserRecipes';
 import EditRecipeForm from './pages/recipes/EditRecipeForm';
 import ProfilePage from './pages/profiles/ProfilePage';
+import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import NotFound from './pages/errors/NotFound';
 
 
@@ -31,6 +32,8 @@ function App() {
           <Route exact path="/my-recipes" render={() => <UserRecipes />} />
           <Route exact path="/favourites" render={() => <FavouritesPage /> } />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}
+          />
           <Route render={() => <NotFound />} />
 
         </Switch>
