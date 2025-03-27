@@ -38,9 +38,6 @@ export const Recipe = (props) => {
   const loggedOut = currentUser === null;
   const is_owner = currentUser?.username === owner;
 
-  // Bug: if I add - remove - add again, the remove function will return an error detail: "No Favourite matches the given query."}
-  // Fix: Added setFavouritesId(data.id) to handleAddToList function to set the favourites id state.
-
   const handleAddToList = async () => {
     try {
       const { data } = await axiosReq.post(`/favourites/`, { recipe: id });
@@ -55,7 +52,7 @@ export const Recipe = (props) => {
             : recipe;
         }),
       }));
-      setFavouritesId(data.id);
+
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
@@ -184,7 +181,6 @@ export const Recipe = (props) => {
         <h2>Instructions</h2>
         <p>{instructions}</p>
       </Row>
-      
     </Container>
   );
 };

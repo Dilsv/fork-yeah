@@ -22,14 +22,15 @@ const useFetchFavourites = (props) => {
                 const { data } = await axiosReq.get(`/favourites/`);
                 // Map through the favourites data and return the recipes that match the current user's username.
                 const favourites = data.results.map(
-                    (result) => result.owner === currentUser?.username && result.recipes
+                    (result) => result.owner === currentUser?.username
                 );
                 // Find the favourites id that matches the current user's username and the recipe id.
                 const favouritesId = data.results.find(
                     (result) =>
-                        result.recipes === props.id &&
+                        result.recipe === props.id &&
                         result.owner === currentUser?.username
                 );
+                
                 if (mounted) {
                     // If the favourites id exists, set the favourites id state.
                     if (favouritesId) {
