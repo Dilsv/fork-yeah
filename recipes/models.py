@@ -39,7 +39,7 @@ class Recipe(models.Model):
     description = models.TextField()
     instructions = models.TextField()
     image = models.ImageField(
-        upload_to="recipes/", default="../default_post_vnf7ym",
+        upload_to="recipes/", default="../recipe-default-image_vkkgno",
         blank=True)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="recipes", default=1)
