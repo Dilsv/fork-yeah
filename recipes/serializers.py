@@ -35,6 +35,7 @@ class RecipeIngredientSerializer(serializers.ModelSerializer):
 class RecipeSerializer(serializers.ModelSerializer):
     # Only display owner's username
     owner = serializers.ReadOnlyField(source="owner.username")
+    is_owner = serializers.SerializerMethodField()
     ingredients = RecipeIngredientSerializer(
         source="recipe_ingredients", many=True,
         required=False,
@@ -42,6 +43,10 @@ class RecipeSerializer(serializers.ModelSerializer):
     )  # Nested ingredients
     category = serializers.SlugRelatedField(
         slug_field="name", queryset=Category.objects.all())
+    
+    def get_is_owner(self, obj):
+        request = self.context["request"]
+        return obj.owner == request.user
 
     class Meta:
         model = Recipe
@@ -56,7 +61,8 @@ class RecipeSerializer(serializers.ModelSerializer):
             "ingredients",
             "created_at",
             "updated_at",
-            "approved"
+            "approved",
+            "is_owner",
         ]
 
     def create(self, validated_data):
