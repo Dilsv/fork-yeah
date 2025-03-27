@@ -5,7 +5,7 @@ import { axiosReq } from "../../api/axiosDefault.js";
 import Asset from "../../components/Asset";
 import Form from "react-bootstrap/Form";
 import styles from "../../styles/RecipesPage.module.css";
-import Row from "react-bootstrap/esm/Row";
+import useFetchCategories from "../../hooks/useFetchCategories.js";
 
 const RecipesPage = () => {
   const [recipes, setRecipes] = useState([{ results: [] }]);
@@ -13,10 +13,15 @@ const RecipesPage = () => {
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
 
+  const { categories } = useFetchCategories();
+  const [category, setCategory] = useState("");
+
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const { data } = await axiosReq.get(`/recipes/?search=${query}`);
+        const { data } = await axiosReq.get(
+          `/recipes/?search=${query}&category=${category}`
+        );
         setRecipes(data);
         setHasLoaded(true);
       } catch (error) {
@@ -30,28 +35,39 @@ const RecipesPage = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [query, pathname]);
+  }, [query, pathname, category]);
 
   return (
     <Container className="mt-5">
-      <Row className="p-1">
-        <i className={`fas fa-search ${styles.SearchIcon}`} />
-        <Form className={styles.SearchBar} onSubmit={(e) => e.preventDefault()}>
-          <Form.Control
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            type="text"
-            placeholder="Search"
-          />
-        </Form>
-      </Row>
+      <i className={`fas fa-search ${styles.SearchIcon}`} />
+      <Form className={styles.SearchBar} onSubmit={(e) => e.preventDefault()}>
+        <Form.Control
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          type="text"
+          placeholder="Search"
+        />
+        <Form.Select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="text-capitalize"
+        >
+          <option value="">All</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </Form.Select>
+      </Form>
+      <hr />
+
       {hasLoaded ? (
         <div>
-          <h1>Recipes</h1>
           {recipes.results.map((recipe) => (
             <div key={recipe.id}>
               <h2>{recipe.title}</h2>
-              <p>{recipe.description}</p>
+              <p>{recipe.category}</p>
             </div>
           ))}
         </div>
