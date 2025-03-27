@@ -11,7 +11,7 @@ from fork_yeah.permissions import IsOwnerOrReadOnly
 
 
 class CategoryListView(generics.ListAPIView):
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().order_by("name")
     serializer_class = CategorySerializer
 
 
@@ -19,11 +19,11 @@ class IngredientListCreateView(generics.ListCreateAPIView):
     """
     View to list and create ingredient names.
     """
-    queryset = Ingredient.objects.all()
+    queryset = Ingredient.objects.all().order_by("name")
     serializer_class = IngredientSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [filters.SearchFilter]
-    search_fields = ['name']
+    search_fields = ["name"]
 
 
 class RecipeListCreateView(generics.ListCreateAPIView):
@@ -31,12 +31,12 @@ class RecipeListCreateView(generics.ListCreateAPIView):
     View to list and create recipes.
     """
     queryset = Recipe.objects.all().filter(
-        approved=True).order_by('-created_at')
+        approved=True).order_by("-created_at")
     serializer_class = RecipeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["category"]
-    search_fields = ['title', 'recipe_ingredients__ingredient__name']
+    search_fields = ["title", "recipe_ingredients__ingredient__name"]
 
     def perform_create(self, serializer):
         """
@@ -73,7 +73,8 @@ class UserRecipesList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["category"]
-    search_fields = ['title', 'recipe_ingredients__ingredient__name']
+    search_fields = ["title", "recipe_ingredients__ingredient__name"]
 
     def get_queryset(self):
-        return Recipe.objects.filter(owner=self.request.user)
+        return Recipe.objects.filter(owner=self.request.user).order_by(
+            "-created_at")
