@@ -26,7 +26,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             "updated_at",
             "name",
             "content",
-            "email_address",
             "image",
             "is_owner",
         ]
