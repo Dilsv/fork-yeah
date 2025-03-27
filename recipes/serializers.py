@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Ingredient, Recipe, RecipeIngredient, Category
+import json
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -32,14 +33,13 @@ class RecipeIngredientSerializer(serializers.ModelSerializer):
 
 
 class RecipeSerializer(serializers.ModelSerializer):
-    # Only display owner's username
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     ingredients = RecipeIngredientSerializer(
         source="recipe_ingredients", many=True,
         required=False,
         read_only=True
-    )  # Nested ingredients
+    )
     category = serializers.SlugRelatedField(
         slug_field="name", queryset=Category.objects.all())
 
@@ -67,16 +67,21 @@ class RecipeSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         ingredients_data = self.context["request"].data.get("ingredients", [])
 
-        print(ingredients_data)
-        if isinstance(ingredients_data, str):
+        if isinstance(ingredients_data, str):  # If it's a string, parse it
+            try:
+                ingredients_data = json.loads(ingredients_data)
+            except json.JSONDecodeError:
+                raise serializers.ValidationError(
+                    {"ingredients": "Invalid format, must be a list."})
+
+        if not isinstance(ingredients_data, list):
             raise serializers.ValidationError(
-                {"ingredients": "This field must be a list"}
-            )
+                {"ingredients": "This field must be a list."})
 
         # Create and save the Recipe first
         recipe = Recipe.objects.create(**validated_data)
 
-        # Now, add ingredients to the recipe
+        # Add ingredients to the recipe
         for ing in ingredients_data:
             recipe = Recipe.objects.get(id=recipe.id)
             ingredient_id = ing.get("ingredient")
@@ -86,7 +91,7 @@ class RecipeSerializer(serializers.ModelSerializer):
             try:
                 ingredient = Ingredient.objects.get(id=ingredient_id)
                 RecipeIngredient.objects.create(
-                    recipe=recipe,  # Recipe instance now has an ID
+                    recipe=recipe,  # Recipe instance ID
                     ingredient=ingredient,
                     quantity=quantity,
                     unit=unit
@@ -109,6 +114,13 @@ class RecipeSerializer(serializers.ModelSerializer):
         instance = super().update(instance, validated_data)
 
         # Validate ingredients input
+        if isinstance(ingredients_data, str):
+            try:
+                ingredients_data = json.loads(ingredients_data)
+            except json.JSONDecodeError:
+                raise serializers.ValidationError(
+                    {"ingredients": "Invalid format, must be a list."})
+
         if not isinstance(ingredients_data, list):
             raise serializers.ValidationError(
                 {"ingredients": "This field must be a list."})
@@ -143,6 +155,8 @@ class RecipeSerializer(serializers.ModelSerializer):
                         quantity=quantity,
                         unit=unit
                     )
+
+                updated_ingredient_ids.add(ingredient_id)
 
             except Ingredient.DoesNotExist:
                 raise serializers.ValidationError(
