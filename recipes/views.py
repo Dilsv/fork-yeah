@@ -63,3 +63,17 @@ class RecipeIngredientListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ["recipe"]
+
+
+class UserRecipesList(generics.ListAPIView):
+    """
+    View to list recipes created by the currently logged-in user.
+    """
+    serializer_class = RecipeSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_fields = ["category"]
+    search_fields = ['title', 'recipe_ingredients__ingredient__name']
+
+    def get_queryset(self):
+        return Recipe.objects.filter(owner=self.request.user)
