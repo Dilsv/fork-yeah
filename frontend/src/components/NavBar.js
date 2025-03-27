@@ -5,7 +5,10 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
 import { removeTokenTimestamp } from "../utils/utils";
@@ -40,14 +43,17 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-star">
-          <span>Favourites</span>
-        </i>
+        <i className="fa-solid fa-star"></i>Favourites
+      </NavLink>
+      <NavLink
+        to="/my-recipes"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i className="fa-solid fa-utensils"></i>My recipes
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt">
-          <span>Sign out</span>
-        </i>
+        <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -117,18 +123,15 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fas fa-home">
-                <span>Home</span>
-              </i>
+              <i className="fas fa-home"></i>Home
             </NavLink>
             <NavLink
+              exact
               to="/recipes"
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fa-solid fa-bowl-food">
-                <span>Recipes</span>
-              </i>
+              <i className="fa-solid fa-bowl-food"></i>Recipes
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
