@@ -14,6 +14,9 @@ class FavouritesList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+        
+    def get_queryset(self):
+        return Favourite.objects.filter(owner=self.request.user)
 
 
 class FavouritesDetail(generics.RetrieveDestroyAPIView):
