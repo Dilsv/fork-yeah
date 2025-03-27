@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Ingredient, Recipe, RecipeIngredient, Category
 
 
-
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
@@ -43,7 +42,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     )  # Nested ingredients
     category = serializers.SlugRelatedField(
         slug_field="name", queryset=Category.objects.all())
-    
+
     def get_is_owner(self, obj):
         request = self.context["request"]
         return obj.owner == request.user
@@ -118,6 +117,9 @@ class RecipeSerializer(serializers.ModelSerializer):
         existing_ingredients = {
             ri.ingredient.id: ri for ri in instance.recipe_ingredients.all()}
 
+        # Track updated ingredient IDs
+        updated_ingredient_ids = set()
+
         for ing in ingredients_data:
             ingredient_id = ing.get("ingredient")
             quantity = ing.get("quantity")
@@ -133,9 +135,10 @@ class RecipeSerializer(serializers.ModelSerializer):
                     recipe_ingredient.unit = unit
                     recipe_ingredient.save()
                 else:
-                    # Create new RecipeIngredient with recipe ID
+                    ingredient = Ingredient.objects.get(id=ingredient_id)
+                    # Create new RecipeIngredient
                     RecipeIngredient.objects.create(
-                        recipe_id=instance.id,  # Set recipe ID explicitly
+                        recipe_id=instance.id,
                         ingredient=ingredient,
                         quantity=quantity,
                         unit=unit
@@ -146,10 +149,12 @@ class RecipeSerializer(serializers.ModelSerializer):
                     {"ingredient": f"Invalid ingredient ID: {ingredient_id}"}
                 )
 
-        # Remove RecipeIngredients that are no longer in the update request
-        # updated_ingredient_ids = [int(i["ingredient"])
-        #                           for i in ingredients_data]
-        # instance.recipe_ingredients.exclude(
-        #     ingredient_id__in=updated_ingredient_ids).delete()
+        ingredients_to_delete = [
+            ri for ing_id, ri in existing_ingredients.items()
+            if ing_id not in updated_ingredient_ids
+        ]
+
+        for ri in ingredients_to_delete:
+            ri.delete()
 
         return instance
