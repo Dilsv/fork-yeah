@@ -1,0 +1,4 @@
+.IngListItem:hover {
+    cursor: pointer;
+    background-color: rgba(255, 213, 124, 0.4);
+}
