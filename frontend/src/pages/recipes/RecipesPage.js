@@ -3,7 +3,7 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault.js";
 import Asset from "../../components/Asset";
 import Form from "react-bootstrap/Form";
@@ -11,7 +11,7 @@ import styles from "../../styles/RecipesPage.module.css";
 import useFetchCategories from "../../hooks/useFetchCategories.js";
 import appStyles from "../../App.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from '../../utils/utils';
+import { fetchMoreData } from "../../utils/utils";
 
 const RecipesPage = () => {
   const [recipes, setRecipes] = useState([{ results: [] }]);
@@ -80,23 +80,27 @@ const RecipesPage = () => {
             <Row className="justify-content-start align-items-center">
               {recipes.results.map((recipe) => (
                 <Col key={recipe.id} className="mb-2" md={4}>
-                  <Card>
-                    <Card.Title className="text-center pt-1">
-                      {recipe.title}
-                    </Card.Title>
-                    <Card.Img
-                      src={recipe.image}
-                      alt={recipe.title}
-                      className={`${appStyles.Image}`}
-                      height={200}
-                    />
-                    <Card.Footer>{recipe.category}</Card.Footer>
-                  </Card>
+                  <Link
+                    to={`/recipes/${recipe.id}`}
+                    className="text-decoration-none"
+                  >
+                    <Card>
+                      <Card.Title className="text-center pt-1">
+                        {recipe.title}
+                      </Card.Title>
+                      <Card.Img
+                        src={recipe.image}
+                        alt={recipe.title}
+                        className={`${appStyles.Image}`}
+                        height={200}
+                      />
+                      <Card.Footer>{recipe.category}</Card.Footer>
+                    </Card>
+                  </Link>
                 </Col>
               ))}
             </Row>
           </InfiniteScroll>
-
         ) : (
           <Asset message="No recipes found" />
         )
