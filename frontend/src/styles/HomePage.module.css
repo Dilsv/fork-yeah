@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  .Title, h1 {
+    font-family: 'bolonse', sans-serif;
+    font-weight: 700;
+    color: #108A9D;
+  }
+  
+  p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    max-width: 800px;
+  }
