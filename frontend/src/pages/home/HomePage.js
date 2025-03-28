@@ -40,13 +40,13 @@ const HomePage = () => {
           🍲 Diverse & Exciting Recipes From classic comfort food to bold
           international dishes, our collection caters to all tastes and skill
           levels. Whether you want a simple home-cooked meal or an adventurous
-          new dish, we’ve got you covered. 
+          new dish, we’ve got you covered.
         </p>
 
         <p>
-          📖 Easy-to-Follow Cooking Guides Our
-          recipes come with clear, step-by-step instructions, cooking tips, and
-          ingredient breakdowns to ensure success in the kitchen—every time! 
+          📖 Easy-to-Follow Cooking Guides Our recipes come with clear,
+          step-by-step instructions, cooking tips, and ingredient breakdowns to
+          ensure success in the kitchen—every time!
         </p>
 
         <p>
@@ -56,15 +56,51 @@ const HomePage = () => {
         </p>
 
         <p className={`h2 ${styles.Title}`}> Get Cooking Today! </p>
-        
-        <p> 🍝 Creamy Garlic Parmesan Pasta – A quick and comforting dish ready in under 30 minutes. </p>
-        <p> 🥗 Zesty Avocado & Quinoa Salad – A refreshing, healthy meal packed with flavour. </p>
-        <p>🍰 Classic Chocolate Lava Cake – A rich and indulgent dessert for chocoholics!</p>
-        
+        <p>
+          {" "}
+          🍝 Creamy Garlic Parmesan Pasta – A quick and comforting dish ready in
+          under 30 minutes.{" "}
+        </p>
+        <p>
+          {" "}
+          🥗 Zesty Avocado & Quinoa Salad – A refreshing, healthy meal packed
+          with flavour.{" "}
+        </p>
+        <p>
+          🍰 Classic Chocolate Lava Cake – A rich and indulgent dessert for
+          chocoholics!
+        </p>
+
         <p> Cooking tips & Tricks </p>
-        <p> 🔥 Perfectly Sear Your Meat – Let it come to room temperature before cooking for an even sear. </p>
-        <p> 🧄 Enhance Flavours Instantly – Toast your spices before using them to deepen their aroma. </p>
-        <p> 🥑 Keep Avocados Fresh – Store them with an onion to slow browning. </p>
+        <p>
+          {" "}
+          🔥 Perfectly Sear Your Meat – Let it come to room temperature before
+          cooking for an even sear.{" "}
+        </p>
+        <p>
+          {" "}
+          🧄 Enhance Flavours Instantly – Toast your spices before using them to
+          deepen their aroma.{" "}
+        </p>
+        <p>
+          {" "}
+          🥑 Keep Avocados Fresh – Store them with an onion to slow browning.{" "}
+        </p>
+
+        <p className={`h2 ${styles.Title}`}> Featured Recipe of the Week </p>
+        <p>
+          🔹 This Week’s Must-Try: Spicy Honey Glazed Chicken – A perfect mix of
+          sweet, spicy, and smokey flavours!
+        </p>
+
+        <p className={`h2 ${styles.Title}`}> User favourite recipes </p>
+        <p>
+          🌟 Most Loved: 🍕 Ultimate Homemade Margherita Pizza – Simple, cheesy,
+          and absolutely delicious! 🥘 One-Pot Chicken & Rice – A hearty,
+          no-fuss meal for busy days.
+        </p>
+
+        <p className={`h2 ${styles.Title}`}> Seasonal & Holiday Recipes</p>
       </>
     </Container>
   );

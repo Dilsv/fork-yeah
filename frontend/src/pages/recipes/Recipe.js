@@ -62,7 +62,6 @@ export const Recipe = (props) => {
             }, 3000);
 
         } catch (err) {
-            // console.log(err);
             setErrors(err.response?.data);
         }
     };
@@ -83,7 +82,6 @@ export const Recipe = (props) => {
                 setAddedToList(false);
             }, 3000);
         } catch (err) {
-            // console.log(err);
             setErrors(err.response?.data);
         }
     };
@@ -97,7 +95,6 @@ export const Recipe = (props) => {
             await axiosRes.delete(`/recipes/${id}/`);
             history.goBack();
         } catch (err) {
-            // console.log(err);
         }
     };
 
