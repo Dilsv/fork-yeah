@@ -1,5 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+
+
+def validate_zero(value):
+    """
+    Validate that the value is not zero
+    """
+    if value < 0:
+        raise ValidationError(_("This field must be a positive number"))
 
 
 class Category(models.Model):
@@ -70,7 +79,7 @@ class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="recipe_ingredients")
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    quantity = models.FloatField()
+    quantity = models.FloatField(validators=[validate_zero])
     unit = models.CharField(max_length=50, choices=UNIT_CHOICES, default="g")
 
     class Meta:
