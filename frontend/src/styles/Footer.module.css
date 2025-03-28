@@ -1,0 +1,16 @@
+.Footer{
+    background-color: #FF7D00;
+}
+
+.Footerlink {
+    color: #108A9D;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    transition: color 0.3s;
+}
+
+.Footerlink:hover {
+    color: #000;
+}
