@@ -8,7 +8,7 @@ def validate_zero(value):
     Validate that the value is not zero
     """
     if value < 0:
-        raise ValidationError(_("This field must be a positive number"))
+        raise ValidationError(("This field must be a positive number"))
 
 
 class Category(models.Model):
@@ -90,3 +90,10 @@ class RecipeIngredient(models.Model):
             f"{self.quantity} {self.unit} of {self.ingredient.name} "
             f"in {self.recipe.title}"
         )
+
+    def save(self, *args, **kwargs):
+        """
+        Ensure that validation runs every time an instance is updated or created.
+        """
+        self.full_clean()  # This triggers all field validators
+        super().save(*args, **kwargs)

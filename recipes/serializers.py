@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import Ingredient, Recipe, RecipeIngredient, Category
+from django.core.exceptions import ValidationError
+from rest_framework.exceptions import ValidationError as DRFValidationError
 import json
 
 
@@ -145,16 +147,24 @@ class RecipeSerializer(serializers.ModelSerializer):
                     recipe_ingredient = existing_ingredients[ingredient_id]
                     recipe_ingredient.quantity = quantity
                     recipe_ingredient.unit = unit
-                    recipe_ingredient.save()
+
+                    try:
+                        recipe_ingredient.full_clean()  # Validate before saving
+                        recipe_ingredient.save()
+                    except ValidationError as e:
+                        raise DRFValidationError({"quantity": e.messages})
                 else:
                     ingredient = Ingredient.objects.get(id=ingredient_id)
                     # Create new RecipeIngredient
-                    RecipeIngredient.objects.create(
-                        recipe_id=instance.id,
-                        ingredient=ingredient,
-                        quantity=quantity,
-                        unit=unit
-                    )
+                    try:
+                        RecipeIngredient.objects.create(
+                            recipe_id=instance.id,
+                            ingredient=ingredient,
+                            quantity=quantity,
+                            unit=unit
+                        )
+                    except ValidationError as e:
+                        raise DRFValidationError({"quantity": e.messages})
 
                 updated_ingredient_ids.add(ingredient_id)
 
