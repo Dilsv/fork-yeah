@@ -14,3 +14,18 @@
     cursor: default;
     color: #3398c7;
   }
+
+  .SearchBar {
+    background-color: F3EADE;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .btn-primary {
+    background-color: #FF7D00;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+  }

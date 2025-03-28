@@ -20,7 +20,6 @@ const RecipePage = () => {
                 if (err.response.status === 404) {
                     history.push("/notfound");
                 }
-                console.log(err);
             }
         };
         handleMount();
