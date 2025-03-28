@@ -53,36 +53,38 @@ Github [Repository](https://github.com/Dilsv/fork-yeah)
 
 ### User Stories
 
-User Story 1: As a new user, I can register an account on the recipe site so that I can save and manage my recipes.
-User Story 2: As a user, I can use the navigation bar so that I can seamlessly navigate around the recipe site.
-User Story 3: As a user, I can see visual indicators for recipe status (e.g., marked as "favourite" or "tried") so that I can track my interaction with recipes.
-User Story 4: As a user, I can favourite and unfavourite recipes so that I can save recipes I want to try later.
-User Story 5: As a user, I can view a list of my favourite recipes so that I can focus on recipes I want to try or cook.
-User Story 6: As a user, I can search for recipes by keywords so that I can find specific recipes more easily.
-User Story 7: As a user, I can delete my recipes so that I can permanently remove recipes I no longer want to keep.
-User Story 8: As a user, I can edit my recipes so that I can correct mistakes or update ingredients, instructions, or titles.
-User Story 9: As a user, I can view recipe comments so that I can read feedback and additional tips from other users.
-User Story 10: As a user, I can comment on recipes so that I can interact with other users and share my experience or suggestions.
-User Story 11: As a user, I can edit or delete my comments on a recipe in case of input errors or changes in feedback.
-User Story 12: As a user, I can manage my recipes so that I can add, edit, or delete my own recipes as needed.
-User Story 13: As a user, I can request a password reset so that I can regain access to my account if I forget my password.
-User Story 14: As a user, I can log in to my account so that I can access my saved recipes, favourites, and profile.
-User Story 15: As a user, I can log out so that other people using the same device cannot access my account.
-User Story 16: As a user, I can have a profile page so that I and others can view my saved recipes, favourites, and personal information.
-User Story 17: As a user, I can update my profile so that my information stays up to date.
-User Story 18: As a user, I can add a profile picture so that others can easily recognise me on the site.
-User Story 19: As a user, I can view the Home Page so that I can understand what the website is about and create an account or log in.
-User Story 20: As a user, I can browse a list of recipe categories so that I can easily find recipes based on types like "Vegan," "Dessert," "Appetiser," etc.
-User Story 21: As a user, I can create a recipe so that I can share my cooking experience with others. 
-User Story 22: As a user, I can rate recipes so that I can give feedback on a recipe and help others make informed decisions.
-User Story 23: As a user, I can filter recipes by ingredients so that I can find recipes based on what I have in my kitchen.
-User Story 24: As a user, I can receive feedback when submitting a new recipe so that I can confirm the submission was successful.
-User Story 1: As the site owner, I would want to validate users' data entries on sign-up so that users can create a login that meets the required standards.
-User Story 2: As the site owner, I would want to ensure only logged-in users can post recipes, comment, or edit their profile so that data privacy is maintained.
-User Story 3: As the site owner, I would want the ability to remove recipes and recipe comments so that I can maintain a clean and friendly environment on the site.
-User Story 4: As the site owner, I would want the site to be fully responsive so that users can access and interact with the website across multiple devices, providing a good user experience.
-User Story 5: As the site owner, I would want to use the app’s search function so that I can find particular recipes by their title or ingredients.
-User Story 6: As the site owner, I would want a 404 error page so that users do not have to use the back navigation button if an error occurs.
+1. User Story 1: As a new user, I can register an account on the recipe site so that I can save and manage my recipes.
+2. User Story 2: As a user, I can use the navigation bar so that I can seamlessly navigate around the recipe site.
+3. User Story 3: As a user, I can see visual indicators for recipe status (e.g., marked as "favourite" or "tried") so that I can track my interaction with recipes.
+4. User Story 4: As a user, I can favourite and unfavourite recipes so that I can save recipes I want to try later.
+5. User Story 5: As a user, I can view a list of my favourite recipes so that I can focus on recipes I want to try or cook.
+6. User Story 6: As a user, I can search for recipes by keywords so that I can find specific recipes more easily.
+7. User Story 7: As a user, I can delete my recipes so that I can permanently remove recipes I no longer want to keep.
+8. User Story 8: As a user, I can edit my recipes so that I can correct mistakes or update ingredients, instructions, or titles.
+9. User Story 9: As a user, I can view recipe comments so that I can read feedback and additional tips from other users.
+10. User Story 10: As a user, I can comment on recipes so that I can interact with other users and share my experience or suggestions.
+11. User Story 11: As a user, I can edit or delete my comments on a recipe in case of input errors or changes in feedback.
+12. User Story 12: As a user, I can manage my recipes so that I can add, edit, or delete my own recipes as needed.
+13. User Story 13: As a user, I can request a password reset so that I can regain access to my account if I forget my password.
+14. User Story 14: As a user, I can log in to my account so that I can access my saved recipes, favourites, and profile.
+15. User Story 15: As a user, I can log out so that other people using the same device cannot access my account.
+16. User Story 16: As a user, I can have a profile page so that I and others can view my saved recipes, favourites, and personal information.
+17. User Story 17: As a user, I can update my profile so that my information stays up to date.
+18. User Story 18: As a user, I can add a profile picture so that others can easily recognise me on the site.
+19. User Story 19: As a user, I can view the Home Page so that I can understand what the website is about and create an account or log in.
+20. User Story 20: As a user, I can browse a list of recipe categories so that I can easily find recipes based on types like "Vegan," "Dessert," "Appetiser," etc.
+21. User Story 21: As a user, I can create a recipe so that I can share my cooking experience with others. 
+22. User Story 22: As a user, I can rate recipes so that I can give feedback on a recipe and help others make informed decisions.
+23. User Story 23: As a user, I can filter recipes by ingredients so that I can find recipes based on what I have in my kitchen.
+24. User Story 24: As a user, I can receive feedback when submitting a new recipe so that I can confirm the submission was successful.
+
+## Site Owner Stories
+1. User Story 1: As the site owner, I would want to validate users' data entries on sign-up so that users can create a login that meets the required standards.
+2. User Story 2: As the site owner, I would want to ensure only logged-in users can post recipes, comment, or edit their profile so that data privacy is maintained.
+3. User Story 3: As the site owner, I would want the ability to remove recipes and recipe comments so that I can maintain a clean and friendly environment on the site.
+4. User Story 4: As the site owner, I would want the site to be fully responsive so that users can access and interact with the website across multiple devices, providing a good user experience.
+5. User Story 5: As the site owner, I would want to use the app’s search function so that I can find particular recipes by their title or ingredients.
+6. User Story 6: As the site owner, I would want a 404 error page so that users do not have to use the back navigation button if an error occurs.
 
 ## Database Diagram
 
@@ -94,7 +96,7 @@ User Story 6: As the site owner, I would want a 404 error page so that users do 
 
 ![Colour pallete](/assets/readme.docs/colours.png)
 
-The colours of the site were chosen to fit the theme of the website. I chose these bright colours as they show creativity and fun.
+The colours of the site were chosen to fit the theme of the website. I chose a mix of these bright and dark colours as they show creativity, fun but also visibility.
 
 ### Typography
 
@@ -176,147 +178,89 @@ All pages on the site are responsive and have :
 
 * ### Navigation Bar                              \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-Site user [navbar](/documentation/features/Navbar.png) contains the logo (acts as home button), Home, About, Services dropdown menu, Contact us and options (flag icons) for Greek or English language.
+Site user [navbar](/assets/readme.docs/features/Navbar.png/) contains the logo (acts as home button), Home, Recipes, Sign in, Sign Up. Once user is signed in, they will also be able to view Create Recipe and Favourite's sections.
 
 * #### Navigation Bar (Admin user)
 
-Admin user [navbar](/documentation/features/AdminNavbar.png) contains the logged in icons plus the Add listing and Messages.
+Admin user [navbar](/assets/readme.docs/features/AdminNavbar.png) contains the logged in icons plus the Add listing and Messages.
 
 * ### Footer
 
-The [Footer](/documentation/features/Footer.png) displays links for the About us, Contact and Listings(Properties) - Facebook, Instagram and Linkedin icons. At the bottom there are the privacy policy and terms & conditions.
+The [Footer](/assets/readme.docs/features/Footer.png) displays links for the About us, Contact and Listings(Properties) - Facebook, Instagram and Linkedin icons. At the bottom there are the privacy policy and terms & conditions.
 
 ___
 
 ### Home Page
 
-The [Home Page](/documentation/features/Home_Page.png) contains 3 full screen hero images, rotated in a carusel, in the center of the iamges displays the search bar. Scrolling down there is some info about the website and 4 cards with the services (Asset Management, Advisory, Valuation and Listings(Properties)). At the bottom of the page displays 4 featured listings.
+The [Home Page](/assets/readme.docs/features/Home_Page.png) contains some headers and paragraphs, the navbar anf footer with social media links.
 
-### Services Pages
+### Recipes Page
 
-All services page display a full screen hero image and bellow content regarding the service
+[Recipes Page](/assets/readme.docs/features/) displays a list of recipes created and uploaded by registered users. The recipes are in an infinite scroll format. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-[Asset Management Page](/documentation/features/AssetMGM.mp4)
+### Sign In Page
 
-[Advisory Page](/documentation/features/Advisory.mp4)
+The [Sign In Page](/assets/readme.docs/features/) displays a Sign In form.  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-[Valuation Page](/documentation/features/Valuation.mp4)
+### Sign Up Page
 
-### Contact Page
+The [Sign Up](/assets/readme.docs/features/) displays the Sign Up form. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-The [Contact Page](/documentation/features/Contact_us_Page.png) displays a contact form.
+### Create Recipe Page
 
-### Listings Page
-
-The [Listings Page](/documentation/features/Listings.mp4) displays the search bar, the listings in a container with infinite scroll and in screens with more than 1200px a google map frame with pins of each listing.
-
-### Listing Page
-
-  The [Listing Page](/documentation/features/Listing.mp4) displays the listing's 5 first images images on top of the page for large screens and in a carusel for small screens, when hovered over image a tooltip with a message to click on image for larger view, the listing's features bellow, a contact form on the right hand of the screen and a google maps frame with listing's pin location.
+  The [Create Recipe Page](/assets/readme.docs/features/) displays the form of which the user has to fill in to create their desired recipe. It has a title input bar, category dropdown, description, search ingredient bar which self populates as the user types in ingredients, create ingredient bar of which the user can add into the ingredient list, the quantity and measuring drop downs and input bars, upload image section, and finally create recipe button.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
   
-#### Images Modal
+### Favourites
 
-  When click on an image, the [modal](/documentation/features/Images_modal.png) will pop up and display the images in a carusel.
-
-### Add Listing Page
-
-  The Add Listing Page contains a form with fields to:
-
-* [Upload images](/documentation/features/Add_images_order.png) - choose which to be the first image and the order of the images when rendered
-* [Basic info](/documentation/features/basic_info.png) - type, sale_type, subtype, currency, price, availability and description
-* [Address information](/documentation/features/address_info.png) - address_number,address_street, postcode, municipality, region, latitude, longitude
-  
-  When type [Land](/documentation/features/AddLand.mp4) has been selected
-  * Land Technical section fields - land area, cover coeficcient, building coefficient, length of facade, orienation, view, slope, zone, distance from sea, power type and heating system.
-
-  When type [Commercial](/documentation/features/AddCommercial.mp4) has been selected
-  * Commercial Features section - floor area, land area, levels, floor level, WC, bathrooms,
-  rooms, heating system, energy class, power type and year built.
-  
-  When type [Residential](/documentation/features/AddResidential.mp4) has been selected
-
-  * floor area, land area, levels, bedrooms, floor level, kitchens, WC, bathrooms,
-  living rooms, heating system, power type, energy class, floor type, glass type, opening frames, year built, service charges
-
-  For each selection there the listing amenities with checkboxes for the user to select.
-
-### Edit Listing Page
-
-  The [Edit Listing Page](/documentation/features/Listing_Edit.png) contains the existed images with a checkbox next to each, a button to delete images, a button to add images and all fields from the Add Listing Page filled with the existed values.
-
-### Messages Page
-
-  The [Messages Page](/documentation/features/Messages_Page.png) displays a search bar that has fields for query (name, email, subject) and
-  a list of the message in a container with infinite scroll.
-  
-#### Message page
-
-  The [Message Page](/documentation/features/Message_Page.png) displays the message in a card with the fields of name, email, subject and
-    message.
-
-### Sign in Page
-
-The [Sign in Page](/documentation/features/Sign_in.png) displays the Sign in form, an image on the right and a link to sign up page.
-
-### Sign up Page
-
-The [Signup Page](/documentation/features/Sign_up.png) displays the sign up form, an image on the rigt and a link to sign in page.
+[Favourites](/assets/readme.docs/features/) displays all the favourite recipes the user has marked as a favourite. The viewer can see the list of favourited recipes with their details and there is a remove from favourites button should the user no longer want it. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ### Profile Page
 
-The [Profile Page](/documentation/features/Profile_Page.png) displays the user's details and a carret down icon to open the [dropdown menu](/documentation/features/Profile_dropdown.png)
-that display icons to [edit profile](/documentation/features/Profile_Edit.png), [change username](/documentation/features/Change_username.png) and [changee password](/documentation/features/Change_password.png)
+The [Profile Page](/assets/readme.docs/features/) displays the user's details and a drop down to edit profile, change password or change username options.
+that display icons to [edit profile](/documentation/features/Profile_Edit.png), [change username](/documentation/features/Change_username.png) and [change password](/documentation/features/Change_password.png) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 #### Edit Profile Page
 
-The [Edit Profile](/documentation/features/Profile_Edit.png) displays a form to update the image, the first name, the last name, the email address and the phone number.
+The [Edit Profile](/assets/readme.docs/features/) displays a form to update the image, the first name, the last name, the email address and the phone number. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 #### Change Username Page
 
-The [Change username Page](/documentation/features/Change_username.png) displays a form to udpate the username.
+The [Change username Page](/assets/readme.docs/features/) displays a form to udpate the username.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 #### Change Password Page
 
-The [Change password Page](/documentation/features/Change_password.png) displays a form with 2 fields (new password and confirm password).
+The [Change password Page](/assets/readme.docs/features/) displays a form with 2 fields (new password and confirm password).\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ### 403 error page
-
-The [403 page](/documentation/features/403.png) displays an image with a text error 403: Forbidden.
+The [403 page](/assets/readme.docs/features/) displays an image with a text error 403: Forbidden. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ### 404 error page
 
-The [404 page](/documentation/features/404.png) displays an image with a text error 404: Not found.
+The [404 page](/assets/readme.docs/features/) displays an image with a text error 404: Not found.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ## Reusable Components
 
-[SearchBar.js](/documentation/features/Searchbar.png) that exists in the home page, the about page, the listings page and
-if logged in user, in the wishlist page.
+RecipesPageComponent.js: displays more recipes from API and paginated recipe data.
 
-Dropdown menu: exists in the [Listing.js](/documentation/features/DropdownMenu.png) (only for admins) and in the [ProfilePage.js](/documentation/features/DropdownMenuProfile.png)
+EditRecipesForm.js: displays categories using the fetch hook.
 
-ListingFormTextFields.js: displays the input fields for the ListingCreateForm and ListingEditForm.
+axiosDefault.js: for ease of communication with the backend API.
 
-ListingHeader.js: displays basic info for a property(listing) and it exists in the Listing, ListingsWishlistPage.
+Asset.js: to supply the loading spinner & user avatar throughout the site.
 
-ListingsWishlistPage.js : to display all the listings, results of listings after a search and the user's wishlist
+CurrentUserContext.js: confirm users logged-in status to determine what functionality is available to that user.
 
-axiosDefault.js : for ease of communication with the backend API.
+useRedirect.js: redirects a user to another page if they are not authorised to be on the page they are trying to access.
 
-Asset.js : to supply the loading spinner & user avatar throughout the site.
+utils.js: supplies functionality to all of the components that utilise the Infinite Scroll.
 
-CurrentUserContext.js : confirm users logged-in status to determine what functionality is available to that user.
+useFetchCategories.js: to fetch categories from the API.
 
-useRedirect.js : redirects a user to another page if they are not authorised to be on the page they are trying to access.
+useFetchFavourites.js: to fetch user's favourites from the API.
 
-utils.js : supplies functionality to all of the components that utilise the Infinite Scroll.
+CreateRecipeForm.js: to fetch ingredients from the API.
 
-ScrolltoTop.js: scrolls the page to top when user change page.
-
-useFetchListings.js: to fetch listings from the API
-
-useFetchWishlist.js: to fetch user's wishlist from the API
-
-useUserStatus.js: to get user status to determine what functionality is available to that user.
+UserRecipes.js: fetches query and category.
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 ## Technologies Used
 
