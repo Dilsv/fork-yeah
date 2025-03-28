@@ -101,6 +101,12 @@ const HomePage = () => {
         </p>
 
         <p className={`h2 ${styles.Title}`}> Seasonal & Holiday Recipes</p>
+        <p>
+          🐰 Easter Special: Carrot Cake Muffins 🎃 Pumpkin Spice Everything!
+        </p>
+
+        <p className={`h2 ${styles.Title}`}> Mini Cooking Challenges </p>
+        <p>This week's challenge: Make a dish using only 5 ingredients!</p>
       </>
     </Container>
   );
