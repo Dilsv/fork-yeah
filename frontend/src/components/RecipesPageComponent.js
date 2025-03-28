@@ -70,7 +70,7 @@ const RecipesPageComponent = ({
                                                 className={`${appStyles.Image} pb-1`}
                                                 height={200}
                                             />
-                                            <Card.Footer>{recipe.category}</Card.Footer>
+                                            <Card.Footer className='text-capitalize'>{recipe.category}</Card.Footer>
                                         </Card>
                                     </Link>
                                 </Col>
