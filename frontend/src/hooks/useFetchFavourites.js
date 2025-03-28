@@ -35,7 +35,6 @@ const useFetchFavourites = (props) => {
           setRecipeId(data.results.map((result) => result.recipe));
         }
       } catch (err) {
-        // console.log(err);
       }
     };
     fetchFavourites();
