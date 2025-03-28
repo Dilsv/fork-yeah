@@ -299,8 +299,6 @@ const EditRecipeForm = () => {
                           )}
                       </Row>
 
-                      <p className="text-muted p-0">Create a New Ingredient</p>
-
                       <Form.Control
                           type="text"
                           placeholder="Ingredient Name"
@@ -312,7 +310,7 @@ const EditRecipeForm = () => {
                               {message}
                           </Alert>
                       ))}
-                      <Button type="submit" onClick={handleCreateIngredient} className="my-3 w-50 me-auto">Create Ingredient</Button>
+                      <Button type="submit" onClick={handleCreateIngredient} className={` ${btnStyles.Button} ${btnStyles.Bright} my-3 w-50 me-auto`}>Create Ingredient</Button>
 
                       {/* List of Selected Ingredients */}
                       {selectedIngredients?.map((ing, index) => (
@@ -435,7 +433,7 @@ const EditRecipeForm = () => {
                       <hr />
                   </Row>
                   <Row className="justify-content-center">
-                      <Button type="submit" className="w-50 mb-3">Update Recipe</Button>
+                      <Button type="submit" className={` ${btnStyles.Button} ${btnStyles.Bright} w-50 mb-3`}>Update Recipe</Button>
                   </Row>
               </Form>
           </Col>
@@ -443,4 +441,4 @@ const EditRecipeForm = () => {
   );
 }
 
-export default EditRecipeForm
+export default EditRecipeForm;

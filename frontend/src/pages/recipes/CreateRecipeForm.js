@@ -263,7 +263,7 @@ const CreateRecipeForm = () => {
                             )}
                         </Row>
 
-                        <p className="text-muted p-0">Create a New Ingredient</p>
+                        <p className={` ${btnStyles.Button} ${btnStyles.Bright}`}>Create a New Ingredient</p>
 
                         <Form.Control
                             type="text"
@@ -271,12 +271,12 @@ const CreateRecipeForm = () => {
                             value={newIngredient}
                             onChange={(e) => setNewIngredient(e.target.value)}
                         />
-                        {errors?.ingredient?.map((message, idx) => (
+                        {errors?.ingredients?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>
                                 {message}
                             </Alert>
                         ))}
-                        <Button type="submit" onClick={handleCreateIngredient} className="my-3 w-50 me-auto">Create Ingredient</Button>
+                        <Button type="submit" onClick={handleCreateIngredient} className={` ${btnStyles.Button} ${btnStyles.Bright}`}>Create Ingredient</Button>
 
                         {/* List of Selected Ingredients */}
                         {selectedIngredients?.map((ingredient, index) => (
@@ -399,7 +399,7 @@ const CreateRecipeForm = () => {
                         <hr />
                     </Row>
                     <Row className="justify-content-center">
-                        <Button type="submit" className="w-50 mb-3">Create Recipe</Button>
+                        <Button type="submit" className={` ${btnStyles.Button} ${btnStyles.Bright}`}>Create Recipe</Button>
                     </Row>
                 </Form>
             </Col>

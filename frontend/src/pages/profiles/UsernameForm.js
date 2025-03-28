@@ -55,7 +55,6 @@ const UsernameForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      // console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -83,7 +82,7 @@ const UsernameForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Bright} mr-3`}
               onClick={() => history.goBack()}
             >
-              cancel
+              Cancel
             </Button>
             <Button
               className={`${btnStyles.Button} ${btnStyles.Bright} `}

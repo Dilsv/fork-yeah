@@ -12,6 +12,7 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import { Link, useHistory } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import btnStyles from "../../styles/Button.module.css";
 
 
 export const Recipe = (props) => {
@@ -135,7 +136,7 @@ export const Recipe = (props) => {
                         <>
                             <Link
                                 to="/signin"
-                                className={` ms-auto btn btn-primary w-25`}
+                                className={`ms-auto btn btn-primary w-25`}
                             >
                                 Add to favourites
                             </Link>
@@ -154,7 +155,7 @@ export const Recipe = (props) => {
                                 {errors?.detail && <p className="text-danger">{errors.detail}</p>}
 
                                 <Button
-                                    className={`my-2 ms-auto w-25`}
+                                    className={` ${btnStyles.Button} ${btnStyles.Bright} my-2 ms-auto w-25`}
                                     onClick={handleRemoveFromList}
                                 >
                                     Remove from favourites
@@ -174,7 +175,7 @@ export const Recipe = (props) => {
 
                                 <Button
                                     className={` ${success ? "mt-2" : null
-                                        } my-2 ms-auto w-25`}
+                                        } ${btnStyles.Button} ${btnStyles.Bright} my-2 ms-auto w-25`}
                                     onClick={handleAddToList}
                                 >
                                     Add to favourites

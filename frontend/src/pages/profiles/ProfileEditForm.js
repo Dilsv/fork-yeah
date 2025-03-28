@@ -57,7 +57,6 @@ const ProfileEditForm = () => {
             profileDataSet.current = true;
           }
         } catch (err) {
-          // console.log(err);
           history.push("/");
         }
       } else {
@@ -91,7 +90,6 @@ const ProfileEditForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      // console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -117,7 +115,7 @@ const ProfileEditForm = () => {
         className={`${btnStyles.Button} ${btnStyles.Bright} mr-3`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Bright}`}

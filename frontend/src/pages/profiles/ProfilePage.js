@@ -42,9 +42,7 @@ function ProfilePage() {
                 const { data } = await axiosReq.get(`/profiles/${id}/`);
                 setProfileData(data);
             } catch (err) {
-                // console.log(err);
                 if (err.response.status === 401) {
-                    console.log('err');
                     
                 }
             }
