@@ -61,7 +61,7 @@ const RecipesPageComponent = ({
               next={() => fetchMoreData(recipes, setRecipes)}
               hasMore={!!recipes.next}
               loader={<Asset spinner />}
-                scrollableTarget="scrollableDiv"
+              scrollableTarget="scrollableDiv"
             >
               <Row className="justify-content-start align-items-center gx-2 mx-0">
                 {array.map((recipe) => (

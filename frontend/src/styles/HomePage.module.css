@@ -1,25 +1,26 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 100vh;
-    min-height: 100vh;
-    width: 100%; /* Ensure it spans the full width */
-    padding: 2rem;
-  }
-  
-  .Title, h1 {
-    font-family: 'bolonse', sans-serif;
-    font-weight: 700;
-    color: #108A9D;
-  }
-  
-  p {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 400;
-    max-width: 800px;
-    text-align: center;
-    margin: 0 auto;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  min-height: 100vh;
+  width: 100%; /* Ensure it spans the full width */
+  padding: 2rem;
+}
+
+.Title,
+h1 {
+  font-family: "bolonse", sans-serif;
+  font-weight: 700;
+  color: #108a9d;
+}
+
+p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+}

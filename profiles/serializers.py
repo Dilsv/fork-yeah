@@ -29,4 +29,3 @@ class ProfileSerializer(serializers.ModelSerializer):
             "image",
             "is_owner",
         ]
-    

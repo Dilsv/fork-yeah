@@ -24,8 +24,7 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
-    } catch (err) {
-    }
+    } catch (err) {}
   };
 
   const loggedInIcons = (

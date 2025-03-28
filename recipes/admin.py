@@ -25,6 +25,7 @@ class RecipeIngredientInline(admin.ModelAdmin):
     list_display = ('recipe', 'ingredient', 'quantity', 'unit')
     list_filter = ('recipe', 'ingredient', 'quantity', 'unit')
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
