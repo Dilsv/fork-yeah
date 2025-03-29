@@ -88,7 +88,7 @@ const UsernameForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Bright} `}
               type="submit"
             >
-              save
+              Save
             </Button>
           </Form>
         </Container>

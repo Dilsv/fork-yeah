@@ -38,8 +38,9 @@ Github [Repository](https://github.com/Dilsv/fork-yeah)
     * [Edit Profile](#edit-profile-page)
     * [Change username](#change-username-page)
     * [Change password](#change-password-page)
-  * [403 error Page](#403-error-page)
   * [404 error Page](#404-error-page)
+* [Responsiveness](#Responsiveness)
+* [Future Improvements](#Future-Improvements)
 * [Reusable Components](#reusable-components)
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -183,56 +184,64 @@ Admin user [navbar](/assets/readme.docs/features/AdminNavbar.png) contains the l
 
 * ### Footer
 
-The [Footer](/assets/readme.docs/features/Footer.png) displays links for the social media links - Facebook, Instagram and Linkedin icons. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+The [Footer](/assets/readme.docs/features/Footer.png) displays links for the social media links - Facebook, Instagram and Linkedin icons.
 ___
 
 ### Home Page
 
-The [Home Page](/assets/readme.docs/features/Home_Page.png) contains some headers and paragraphs, the navbar anf footer with social media links.
+The [Home Page](/assets/readme.docs/features/Home_Page.png) contains some headers and paragraphs, the navbar and footer with social media links.
 
 ### Recipes Page
 
-[Recipes Page](/assets/readme.docs/features/) displays a list of recipes created and uploaded by registered users. The recipes are in an infinite scroll format. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+[Recipes Page](/assets/readme.docs/features/Recipes_page.png) displays a list of recipes created and uploaded by registered users. The recipes are in an infinite scroll format.
 ### Sign In Page
 
-The [Sign In Page](/assets/readme.docs/features/) displays a Sign In form.  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [Sign In Page](/assets/readme.docs/features/Signin_page.png) displays a Sign In form.
 
 ### Sign Up Page
 
-The [Sign Up](/assets/readme.docs/features/) displays the Sign Up form. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [Sign Up](/assets/readme.docs/features/Signup_page.png) displays the Sign Up form.
 
 ### Create Recipe Page
 
-  The [Create Recipe Page](/assets/readme.docs/features/) displays the form of which the user has to fill in to create their desired recipe. It has a title input bar, category dropdown, description, search ingredient bar which self populates as the user types in ingredients, create ingredient bar of which the user can add into the ingredient list, the quantity and measuring drop downs and input bars, upload image section, and finally create recipe button.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  The [Create Recipe Page](/assets/readme.docs/features/Createrecipe_page.png) displays the form of which the user has to fill in to create their desired recipe. It has a title input bar, category dropdown, description, search ingredient bar which self populates as the user types in ingredients, create ingredient bar of which the user can add into the ingredient list, the quantity and measuring drop downs and input bars, upload image section, and finally create recipe button.
   
 ### Favourites
 
-[Favourites](/assets/readme.docs/features/) displays all the favourite recipes the user has marked as a favourite. The viewer can see the list of favourited recipes with their details and there is a remove from favourites button should the user no longer want it. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+[Favourites](/assets/readme.docs/features/Favourites_page.png) displays all the favourite recipes the user has marked as a favourite. The viewer can see the list of favourited recipes with their details and there is a remove from favourites button should the user no longer want it.
 
 ### Profile Page
 
-The [Profile Page](/assets/readme.docs/features/) displays the user's details and a drop down to edit profile, change password or change username options.
+The [Profile Page](/assets/readme.docs/features/Profile_page.png) displays the user's details and a drop down to edit profile, change password or change username options.
 
 #### Edit Profile Page
 
-The [Edit Profile](/assets/readme.docs/features/Profile_Edit.png) displays a form to update the image and their username.
+The [Edit Profile](/assets/readme.docs/features/Profile_edit.png) displays a form to update the image and their username.
 
 #### Change Username Page
 
-The [Change username Page](/assets/readme.docs/features/Change_useername.png) displays a form to update the username.
+The [Change username Page](/assets/readme.docs/features/Change_username.png) displays a form to update the username.
 
 #### Change Password Page
 
-The [Change password Page](/assets/readme.docs/features/Change_password.png) displays a form with 2 fields (new password and confirm password).\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-### 403 error page
-The [403 page](/assets/readme.docs/features/) displays an image with a text error 403: Forbidden. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [Change password Page](/assets/readme.docs/features/Change_password.png) displays a form with 2 fields (new password and confirm password).
 
 ### 404 error page
 
-The [404 page](/assets/readme.docs/features/404_error.png) displays an image with a text error 404: Not found.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [404 page](/assets/readme.docs/features/Error_page.png) displays an image with a text error 404: Not found.
+
+## Responsiveness
+
+The application has been tested for responsiveness on iPhone Pro Max, Windows computer, Samsung 34' desktop screen.
+
+## Future Improvements
+During the build of the website, the developer had faced tight time constraints. The areas they would go back and adjust is:
+- More UX design added for better user experience, such as stablised footer on screen and Navbar toggle colour
+- Image Validator for a quicker response time of page uploads
+- Detailed landing page, with links to recipes
+- Engagement between users through liking, commenting and reacting on posts
+- Spinner continously spinning in Favourites page; the improvement would be to stop that once it has generated all the users favourites
+
 
 ## Reusable Components
 

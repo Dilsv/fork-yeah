@@ -130,7 +130,7 @@ export const Recipe = (props) => {
         <div className="col-12 d-flex justify-content-end flex-column">
           {loggedOut ? (
             <>
-              <Link to="/signin" className={`ms-auto btn btn-primary w-25`}>
+              <Link to="/signin" className={` ${btnStyles.Button} ${btnStyles.Bright} my-2 ms-auto`}>
                 Add to favourites
               </Link>
             </>
@@ -147,7 +147,7 @@ export const Recipe = (props) => {
                 )}
 
                 <Button
-                  className={` ${btnStyles.Button} ${btnStyles.Bright} my-2 ms-auto w-25`}
+                  className={` ${btnStyles.Button} ${btnStyles.Bright} my-2 ms-auto`}
                   onClick={handleRemoveFromList}
                 >
                   Remove from favourites
