@@ -237,7 +237,7 @@ The application has been tested for responsiveness on iPhone Pro Max, Windows co
 ## Future Improvements
 During the build of the website, the developer had faced tight time constraints. The areas they would go back and adjust is:
 - More UX design added for better user experience, such as stablised footer on screen and Navbar toggle colour
-- Image Validator for a quicker response time of page uploads
+- Image Validator for a quicker response time of page uploads 
 - Detailed landing page, with links to recipes
 - Engagement between users through liking, commenting and reacting on posts
 - Spinner continously spinning in Favourites page; the improvement would be to stop that once it has generated all the users favourites
