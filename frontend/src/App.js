@@ -3,11 +3,11 @@ import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefault";
-import SignUpForm from "./pages/auth/SignUpForm.js";
-import SignInForm from "./pages/auth/SignInForm.js";
+import SignUpForm from "./pages/auth/SignUpForm";
+import SignInForm from "./pages/auth/SignInForm";
 import CreateRecipeForm from "./pages/recipes/CreateRecipeForm";
 import RecipePage from "./pages/recipes/RecipePage";
-import RecipesPage from "./pages/recipes/RecipesPage.js";
+import RecipesPage from "./pages/recipes/RecipesPage";
 import FavouritesPage from "./pages/recipes/FavouritesPage";
 import UserRecipes from "./pages/recipes/UserRecipes";
 import EditRecipeForm from "./pages/recipes/EditRecipeForm";
@@ -16,8 +16,8 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPassword";
 import NotFound from "./pages/errors/NotFound";
-import HomePage from "./pages/home/HomePage.js";
-import Footer from "./components/Footer.js";
+import HomePage from "./pages/home/HomePage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
