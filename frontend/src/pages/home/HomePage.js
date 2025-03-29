@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
-import { useLocation } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefault.js";
-import useFetchCategories from "../../hooks/useFetchCategories.js";
-import RecipesPageComponent from "../../components/RecipesPageComponent";
 import styles from "../../styles/HomePage.module.css";
 
 const HomePage = () => {

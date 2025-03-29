@@ -27,16 +27,11 @@ Github [Repository](https://github.com/Dilsv/fork-yeah)
     * [Navigation Bar (Admin)](#navigation-bar-admin-user)
   * [Footer](#footer)
   * [Home Page](#home-page)
-  * [About Page](#about-page)
-  * [Services Pages](#services-pages)
-  * [Contact us Page](#contact-page)
-  * [Listings Page](#listings-page)
-  * [Listing Page](#listing-page)
+  * [Recipes Page](#listings-page)
+  * [Recipe Page](#listing-page)
     * [Images modal](#images-modal)
-  * [Add Listing Page](#add-listing-page)
-  * [Edit Listing Page](#edit-listing-page)
-  * [Messages Page](#messages-page)
-    * [Message Page](#message-page)
+  * [Add Recipe Page](#add-listing-page)
+  * [Edit Recipe Page](#edit-listing-page)
   * [Sign in Page](#sign-in-page)
   * [Signup Page](#sign-up-page)
   * [Profile Page](#profile-page)
@@ -50,6 +45,7 @@ Github [Repository](https://github.com/Dilsv/fork-yeah)
   * [Languages Used](#languages-used)
   * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 * [Testing](#testing)
+* [Acknowledgements](#Acknowledgements)
 
 ### User Stories
 
@@ -182,11 +178,11 @@ Site user [navbar](/assets/readme.docs/features/Navbar.png/) contains the logo (
 
 * #### Navigation Bar (Admin user)
 
-Admin user [navbar](/assets/readme.docs/features/AdminNavbar.png) contains the logged in icons plus the Add listing and Messages.
+Admin user [navbar](/assets/readme.docs/features/AdminNavbar.png) contains the logged in icons plus the Add recipe. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 * ### Footer
 
-The [Footer](/assets/readme.docs/features/Footer.png) displays links for the About us, Contact and Listings(Properties) - Facebook, Instagram and Linkedin icons. At the bottom there are the privacy policy and terms & conditions.
+The [Footer](/assets/readme.docs/features/Footer.png) displays links for the social media links - Facebook, Instagram and Linkedin icons. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ___
 
@@ -261,7 +257,7 @@ useFetchFavourites.js: to fetch user's favourites from the API.
 CreateRecipeForm.js: to fetch ingredients from the API.
 
 UserRecipes.js: fetches query and category.
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 ## Technologies Used
 
 ### Languages Used
@@ -303,10 +299,7 @@ HTML, CSS, JS
 * [React Router](https://v5.reactrouter.com/web/guides/quick-start) Used to dynamically load pages and aid site navigation for the user.
 * [jwt-decode](https://www.npmjs.com/package/jwt-decode) A browser library that helps decoding JWT's token
 * [Cloudinary](https://cloudinary.com/) - To host images
-* [React google maps](https://visgl.github.io/react-google-maps/) - To render maps with listing's pinned location
-* [i18next](https://www.i18next.com/) - To load English and Greek translation
 * [React cookie consent](https://www.npmjs.com/package/react-cookie-consent)- To get user's consent to load google maps
-* [React phone number input](https://www.npmjs.com/package/react-phone-number-input) - To format and validate phone field
 
 #### Programs Used
 
@@ -318,10 +311,17 @@ HTML, CSS, JS
 * [Obsidian](https://code.visualstudio.com/) - To keep notes.
 * [Balsamiq](https://balsamiq.com/) - Used to create wireframes.
 * [Techsini](https://techsini.com/multi-mockup/index.php) - To display the web image in various devices.
-* [Google Developer Tools](https://developer.chrome.com/docs/) - To test features, resposiveness and stylilng.
-* [TinyPNG](https://tinypng.com/) - To reduce size of the images.
+* [Google Developer Tools](https://developer.chrome.com/docs/) - To test features, resposiveness and styling.
 * [Favicon](https://favicon.io/) - To create favicon.
 * [Coolors](https://coolors.co/) - To create palette image to README.
 
-## Testing \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+## Testing
 Please see [Testing](TESTING.md)
+
+### Aknowledgments
+
+My mentor [Mo Shami] for guidance, support and feedback during the project.
+
+My fellow Code Institute peer Vasileios Tsimourdagkas for feedback and support during the project. Also for providing an excellent guide how to write the TESTING.md.
+
+And my friends and family for hteir ongoing support during this project.

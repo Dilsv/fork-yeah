@@ -6,16 +6,16 @@
 
 ## PEP8
 
-During developement I had enabled the autopep8 extension to format the files on save.
+During development I had enabled the autopep8 extension to format the files on save.
 I also had enabled the Flake8 linter and I had no errors or warnings.
 
 ## Manual Testing
 
 | # | Endpoint | Method | Expected outcome | Pass/Fail |
 | -- | --- | --- | --- | --- |
-| | Listings | | | |
+| | Recipes | | | |
 | 1 | /recipes | GET | A list of all recipes | ✅ |
-| 2 | /recipes | POST* | Create a new listing | ✅ |
+| 2 | /recipes | POST* | Create a new Recipe | ✅ |
 | 3 | /recipes/:id | GET | A recipe with its details | ✅ |
 | 4 | /recipes/:id | PUT | Update recipe's details | ✅ |
 | 5 | /recipes/:id | DELETE | Delete a recipe | ✅ |
@@ -35,69 +35,9 @@ I also had enabled the Flake8 linter and I had no errors or warnings.
 | 16 | /profiles/:id | PUT | If owner update the profile | ✅ |
 | 17 | /profiles/:id | DELETE | If owner delete the profile | ✅ |
 
-*POST method for /listings has been tested with Postman as I had to upload multiple images.
+*POST method for /Recipes has been tested with Postman as I had to upload multiple images.
 
-[/listings POST](/documentation/testing/POST_listings.png) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-## BUGS
-
-BUG: Not displaying image size errors.
-
-FIX: I had to adjust the ImagesSerializer from :
-
-```python
-def validate_image(self, value):
-
-        if value.size > 1024 * 1024 * 2:
-
-            raise serializers.ValidationError("Image too large")
-
-        if value.images.width > 4096:
-
-            raise serializers.ValidationError("Image dimensions too large")
-
-        if value.images.height > 4096:
-
-            raise serializers.ValidationError("Image dimensions too large")
-
-        return value
-```
-
-to :
-
-```python
-def validate_images(self, value):
-
-        for image in value:
-
-            if image.size > 1024 * 1024 * 2:
-
-                raise serializers.ValidationError("Image too large")
-
-            width, height = get_image_dimensions(image)
-
-            if width > 4096:
-
-                raise serializers.ValidationError("Image width too large")
-
-            if height > 4096:
-
-                raise serializers.ValidationError("Image height too large")
-
-        return value
-```
-
-___
-
-BUG: When try to logout after refresh the page it would auto login with the last user
-
-FIX: It was missing "/" at backend logout url (Thanks Jason from Code Institute tutor support that spotting the error and
-explaining to me what was the hint (Response from API was from the default logout view, that is bugged))
-
-```python
-path("dj-rest-auth/logout/", logout_route),
-```
-
+[/Recipes POST](/documentation/testing/POST_Recipes.png) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 ___
 
 * [CSS](#css)
@@ -136,7 +76,6 @@ the useEffect hook will run indefinitely, so I had to remove it.
             email: data.email_address,
           });
         } catch (err) {
-          // console.log(err);
         }
       };
       fetchProfileData();
@@ -148,11 +87,11 @@ the useEffect hook will run indefinitely, so I had to remove it.
 
 ```
 
-## Lighthouse
+## Lighthouse \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ![Lighthouse](/documentation/Lighthouse.png)
 
-Lighthouse testing has been performed on all pages. No significants dropdowns other than the listings page
+Lighthouse testing has been performed on all pages. No significants dropdowns other than the Recipes page
 performance that contain large images (user's uploads).
 
 ## User Stories
@@ -202,8 +141,8 @@ performance that contain large images (user's uploads).
 |  | Sign up Page | | | |
 | 13 | All fields filled correctly | Create account and redirect to sign in page | click Sign up button | ✅ |
 | 14 | Leave blank username field | Display error: This field may not be blank. | click Sign up button | ✅ |
-| 15 | Leave blank password field | Display error: This field may not be blank. | click Sign up button | ✅ |
-| 16 | Leave empty confirm password field | Display error: This field may not be blank. | click Sign up button | ✅ |
+| 15 | Leave blank password field | Display error: This field may not be blank. | click Sign up button | ✅ |ick Sign up b
+| 16 | Leave empty confirm password field | Display error: This field may not be blank. | clutton | ✅ |
 | 17 | Set different confirm password | Display error: The two password fields didn't match. | click Sign up button | ✅ |
 | 18 | Give username that already exists | Display error: A user with that username already exists. | click Sign up button | ✅ |
 | 19 | Sign in Page | | | |
@@ -214,14 +153,14 @@ performance that contain large images (user's uploads).
 | 24 | Recipe Page | | | |
 | 25 | Infinite scroll | Scroll down and populate more recipes | Scrolled down | ✅ |
 | 26 | Click on image | Redirect to recipe page | click on image | ✅ |
-| 27 | Listing Page | | | |
+| 27 | Recipe Page | | | |
 | 28 | Display image in modal | Display image in modal | click on an image | ✅ |
 | 29 | Recipe Page (logged out) | | | |
 | 30 | Add to favourite button | Redirect to sign in page | click button | ✅ |
-| | Listing Page (logged in) | | | |
+| | Recipe Page (logged in) | | | |
 | 31 | Add to favourites button | Add recipe to wishlist, display message: Added to favourites | click button | ✅ |
 | 32 | Remove from favourites button | Remove recipe from favourites, display message: Removed from favourites | click button | ✅ |
-| | Listing Page (logged in staff member) | | | |
+| | Recipe Page (logged in staff member) | | | |
 | 33 | Display owner, created at, updated at, carret down(dropdown menu) | Display owner, created at, updated at | sign in as admin, navigate to recipe page | ✅ |
 | 34 | Display dropdown menu | Display edit and delete icons | click caret down button | ✅ |
 | 35 | Dropdown menu edit icon | Redirect to edit recipe page | click edit icon | ✅ |
@@ -230,10 +169,8 @@ performance that contain large images (user's uploads).
 | 37 | Blank any field | Display error message: This field may not be blank. | Left blank one of each fields and press create | ✅ |
 | 38 | Availability field | Display error: | Left blank availability field and press create | ✅ |
 | 39 | ** Fields recipe title, category, description, select ingredient (self populating), create ingredient, recipe quantities are number only fields | Display error message: a valid integer is required | Left blank one of each fields and press create | ✅ |
-
-| 40 | ** Fields Address number, price, surface, levels, bedrooms, floor, kitchens, bathrooms and living rooms are number only fields | Display error message: This field must be a positive number | Typed negative value on one of each fields and press create | ✅ |
-
-| | Edit listing | | | |
+| 40 | ** Fields quantity are number only fields | Display error message: This field must be a positive number | Typed negative value on one of each fields and press create | ✅ |
+| | Edit recipe | | | |
 | 41 | Existing images checkbox | Change selected image | Change image and click save changes button | ✅ |
 | 42 | Submit button | Button text: Update | Navigate to the edit recipe page | ✅ |
 | 43 | * The rest of the fields same as create recipe | | | ✅ |
@@ -270,12 +207,10 @@ performance that contain large images (user's uploads).
 | 67 | Non staff member can't access the Edit Recipe | Display 403 page | Navigated to Edit Recipe url as logged in user | ✅ |
 | 68 | Non staff member can't access the Edit Recipe | Display Edit Recipe Page | Navigated to Edit Recipe url as admin user | ✅ |
 | | Not found 404 | | | |
-
-| 69 | 404 not found page | Load 404 if Listing id doesn't exist | Navigated to a recipe and change the url on the browser, ie. listings/1234567 | ✅ | \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+| 69 | 404 not found page | Load 404 if Recipe id doesn't exist | Navigated to a recipe and change the url on the browser, ie. Recipes/1234567 | ✅ |
 | 70 | 404 not found page | Load 404 page | Tried various urls that don't exist | ✅ |
 
-## Bugs \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+## Bugs
 
 ### Solved Bugs
 
@@ -285,39 +220,56 @@ FIX: I had to add in the useEffect array the addedToList variable to be able to 
 
 ___
 
-BUG: When edit form get the following warning in the console : ProfileEditForm.js:46 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function at ProfileEditForm
-
-Fix: After chatting with student support we realise that the call to setProfileData was causing the issue, as it's being called after the component unmounts,  the solution was to create a ref :
+BUG: When creating or updating recipe and entering a negative value for quantity the error message would not render.
+Fix: Update the error code :
 
  ```javascript
- const profileDataSet = useRef(false)
+ {errors?.quantity?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
+                {errors?.unit?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
  ```
-
-and update my useEffect hook with an if statement:
-
-```javascript
-if (!profileDataSet.current) {`
-            `setProfileData({`
-              `first_name,`
-              `last_name,`
-              `email_address,`
-              `image,`
-              `phone,`
-            `});`
-            `profileDataSet.current = true;`
-          `}`
-```
-
 ___
-BUG: After updating a listing and redirecting to `history.push(/listings/${data.id});` the old images would be rendered.
+BUG: When updating recipes negative values for quantity, it would not raise the validation error.
 
-FIX:
+FIX: Modify their RecipeSerializer's update() method to catch validation errors and return a 400 response instead of a 500 error: (solution found on ChatGPT)
 
-```javascript
-window.localstorage.setItem("edited", true);` in `handleSubmit()` to ListingEditForm.js
+```python
+try:
+                ingredient = Ingredient.objects.get(id=ingredient_id)
+
+                if ingredient_id in existing_ingredients:
+                    # Update existing RecipeIngredient
+                    recipe_ingredient = existing_ingredients[ingredient_id]
+                    recipe_ingredient.quantity = quantity
+                    recipe_ingredient.unit = unit
+
+                    try:
+                        recipe_ingredient.full_clean()  # Validate before saving
+                        recipe_ingredient.save()
+                    except ValidationError as e:
+                        raise DRFValidationError({"quantity": e.messages})
+                else:
+                    ingredient = Ingredient.objects.get(id=ingredient_id)
+                    # Create new RecipeIngredient
+                    try:
+                        RecipeIngredient.objects.create(
+                            recipe_id=instance.id,
+                            ingredient=ingredient,
+                            quantity=quantity,
+                            unit=unit
+                        )
+                    except ValidationError as e:
+                        raise DRFValidationError({"quantity": e.messages})
 ```
 
-and  then in ListingsPage.js add
+and  then in RecipesPage.js add
 
 ```javascript
 if (window.localStorage.getItem("edited") === "true") { window.location.reload(); localStorage.removeItem("edited");}
@@ -358,12 +310,26 @@ FIX: Had to set
 
 to package.json to be able to deploy the app
 
-BUG: When adding or removing listings to the wishlist and navigate within 3 seconds to Wishlist it would raise the following warning:
+BUG: When adding or removing Recipes to the favourites and navigate within 3 seconds to Favourites it would raise the following warning:
 
 ```text
-Listing.js:123 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-    at Listing (https://re-real-estate-ecc213881132.herokuapp.com/static/js/main.chunk.js:8125:5)
-    at ListingPage (https://re-real-estate-ecc213881132.herokuapp.com/static/js/main.chunk.js:9934:73)
+Recipe.js:123 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+    at Recipe (https://https://fork-yeah-1ed6fe420f34.herokuapp.com//static/js/main.chunk.js:8125:5)
+    at RecipePage (https://https://fork-yeah-1ed6fe420f34.herokuapp.com//static/js/main.chunk.js:9934:73)
 ```
 
-FIX: I added to the useFetchWishlist hook to check if component is mounted and then perform any state update. Solution found at [stackoverflow](https://stackoverflow.com/questions/53949393/cant-perform-a-react-state-update-on-an-unmounted-component)
+FIX: I added to the useFetchFavourites hook to check if component is mounted and then perform any state update. Solution found at [stackoverflow](https://stackoverflow.com/questions/53949393/cant-perform-a-react-state-update-on-an-unmounted-component)
+
+## Credits
+
+### Code Used
+
+[Code Institute's](https://codeinstitute.net/) - Walkthrough project Moments.
+
+[React docs](https://legacy.reactjs.org/docs/getting-started.html)
+
+[Stackoverflow](https://stackoverflow.com/) - For varius enquries I had.
+
+[stackoverflow](https://stackoverflow.com/questions/53949393/cant-perform-a-react-state-update-on-an-unmounted-component) - To fix warning for unmounted component.
+
+[ChatGPT] (https://openai.com/index/chatgpt/) - For RecipeSerializers.
