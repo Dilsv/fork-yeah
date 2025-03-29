@@ -214,26 +214,25 @@ The [Sign Up](/assets/readme.docs/features/) displays the Sign Up form. \\\\\\\\
 ### Profile Page
 
 The [Profile Page](/assets/readme.docs/features/) displays the user's details and a drop down to edit profile, change password or change username options.
-that display icons to [edit profile](/documentation/features/Profile_Edit.png), [change username](/documentation/features/Change_username.png) and [change password](/documentation/features/Change_password.png) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 #### Edit Profile Page
 
-The [Edit Profile](/assets/readme.docs/features/) displays a form to update the image, the first name, the last name, the email address and the phone number. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [Edit Profile](/assets/readme.docs/features/Profile_Edit.png) displays a form to update the image and their username.
 
 #### Change Username Page
 
-The [Change username Page](/assets/readme.docs/features/) displays a form to update the username.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [Change username Page](/assets/readme.docs/features/Change_useername.png) displays a form to update the username.
 
 #### Change Password Page
 
-The [Change password Page](/assets/readme.docs/features/) displays a form with 2 fields (new password and confirm password).\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [Change password Page](/assets/readme.docs/features/Change_password.png) displays a form with 2 fields (new password and confirm password).\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ### 403 error page
 The [403 page](/assets/readme.docs/features/) displays an image with a text error 403: Forbidden. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ### 404 error page
 
-The [404 page](/assets/readme.docs/features/) displays an image with a text error 404: Not found.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [404 page](/assets/readme.docs/features/404_error.png) displays an image with a text error 404: Not found.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ## Reusable Components
 
