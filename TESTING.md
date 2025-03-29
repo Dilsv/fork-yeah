@@ -37,7 +37,7 @@ I also had enabled the Flake8 linter and I had no errors or warnings.
 
 *POST method for /Recipes has been tested with Postman as I had to upload multiple images.
 
-[/Recipes POST](/documentation/testing/POST_Recipes.png) \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+[/Recipes POST](/documentation/testing/POST_Recipes.png)
 ___
 
 * [CSS](#css)
@@ -51,13 +51,13 @@ ___
 
 All files has been checked and gave no errors.
 
-![CSS](/documentation/CSS_validation.png)
+![CSS](/assets/readme.docs/features/CSS_validation.png)
 
 ## ESlint
 
 [ESlint](https://eslint.org/) - Has been used during developement and had no errors.
 
-![ESlint](/documentation/Eslint.png)
+![ESlint](/assets/readme.docs/features/Eslint.png)
 
 In the ContactForm.js and in the useEffect hook dependencies array I had to disable-next-line. If contactData is included in the dependency array,
 the useEffect hook will run indefinitely, so I had to remove it.
@@ -87,11 +87,11 @@ the useEffect hook will run indefinitely, so I had to remove it.
 
 ```
 
-## Lighthouse \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+## Lighthouse
 
-![Lighthouse](/documentation/Lighthouse.png)
+![Lighthouse](/assets/readme.docs/features/Lighthouse.png)
 
-Lighthouse testing has been performed on all pages. No significants dropdowns other than the Recipes page
+Lighthouse testing has been performed on all pages. No significant dropdowns other than the Recipes page
 performance that contain large images (user's uploads).
 
 ## User Stories
