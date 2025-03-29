@@ -172,13 +172,14 @@ Fork Yeah!’s future goals include expanding its user base by potentially allow
 
 All pages on the site are responsive and have :
 
-* ### Navigation Bar                              \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+* ### Navigation Bar
 
 Site user [navbar](/assets/readme.docs/features/Navbar.png/) contains the logo (acts as home button), Home, Recipes, Sign in, Sign Up. Once user is signed in, they will also be able to view Create Recipe and Favourite's sections.
+[SignedIn] (/assets/readme.docs/features/NavbarSignin.png/).
 
 * #### Navigation Bar (Admin user)
 
-Admin user [navbar](/assets/readme.docs/features/AdminNavbar.png) contains the logged in icons plus the Add recipe. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Admin user [navbar](/assets/readme.docs/features/AdminNavbar.png) contains the logged in icons plus the Add recipe. 
 
 * ### Footer
 
@@ -221,7 +222,7 @@ The [Edit Profile](/assets/readme.docs/features/) displays a form to update the 
 
 #### Change Username Page
 
-The [Change username Page](/assets/readme.docs/features/) displays a form to udpate the username.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+The [Change username Page](/assets/readme.docs/features/) displays a form to update the username.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 #### Change Password Page
 
