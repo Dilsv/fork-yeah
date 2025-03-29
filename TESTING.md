@@ -328,7 +328,7 @@ FIX: I added to the useFetchFavourites hook to check if component is mounted and
 
 [React docs](https://legacy.reactjs.org/docs/getting-started.html)
 
-[Stackoverflow](https://stackoverflow.com/) - For varius enquries I had.
+[Stackoverflow](https://stackoverflow.com/) - For various enquries I had.
 
 [stackoverflow](https://stackoverflow.com/questions/53949393/cant-perform-a-react-state-update-on-an-unmounted-component) - To fix warning for unmounted component.
 
