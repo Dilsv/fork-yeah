@@ -7,13 +7,13 @@ const Footer = () => {
       <div className="container mx-auto flex justify-center items-center px-4">
         {/* Social Media Links */}
         <div className="flex space-x-4">
-          <a href="#" className={`${styles.Footerlink}`} target="_blank">
+          <a href="https://www.facebook.com/?locale=en_GB" className={`${styles.Footerlink}`} target="_blank" rel="noreferrer">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="#" className={`${styles.Footerlink}`} target="_blank">
+          <a href="https://www.instagram.com/" className={`${styles.Footerlink}`} target="_blank" rel="noreferrer">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="#" className={`${styles.Footerlink}`} target="_blank">
+          <a href="https://x.com/?lang=en" className={`${styles.Footerlink}`} target="_blank" rel="noreferrer">
             <i className="fab fa-twitter"></i>
           </a>
         </div>
