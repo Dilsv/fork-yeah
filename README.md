@@ -2,7 +2,7 @@
 
 Fork Yeah! is the delicious result of the final project the owner has created at Code Institute, now live as a fully functional recipe website. After refining and merging multiple repositories, the platform is designed to grow and evolve with user engagement at its core. Fork Yeah! makes it easy for food lovers to discover, save, and share their favourite recipes, whether they're looking for quick weekday meals or gourmet creations.
 
-Deployed Heroku: [Fork Yeah! Heroku]()
+Deployed Heroku: [Fork Yeah! Heroku](https://fork-yeah-1ed6fe420f34.herokuapp.com/)
 
 Github [Repository](https://github.com/Dilsv/fork-yeah)
 
@@ -40,11 +40,12 @@ Github [Repository](https://github.com/Dilsv/fork-yeah)
     * [Change password](#change-password-page)
   * [404 error Page](#404-error-page)
 * [Responsiveness](#Responsiveness)
-* [Future Improvements](#Future-Improvements)
+* [Future Improvements/Bugs](#Future-Improvements)
 * [Reusable Components](#reusable-components)
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
   * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+* [Deployment](#deployment)
 * [Testing](#testing)
 * [Acknowledgements](#Acknowledgements)
 
@@ -234,14 +235,25 @@ The [404 page](/assets/readme.docs/features/Error_page.png) displays an image wi
 
 The application has been tested for responsiveness on iPhone Pro Max, Windows computer, Samsung 34' desktop screen.
 
-## Future Improvements
+## Future Improvements/Bugs
 During the build of the website, the developer had faced tight time constraints. The areas they would go back and adjust is:
-- More UX design added for better user experience, such as stablised footer on screen and Navbar toggle colour
-- Image Validator for a quicker response time of page uploads 
-- Detailed landing page, with links to recipes
-- Engagement between users through liking, commenting and reacting on posts
-- Spinner continously spinning in Favourites page; the improvement would be to stop that once it has generated all the users favourites
+- More UX design added for better user experience, such as stablised footer on screen and Navbar toggle colour.
+- Image Validator for a quicker response time of page uploads. 
+- Detailed landing page, with links to recipes.
+- Engagement between users through liking, commenting and reacting on posts.
+- Spinner continously spinning in Favourites page; the improvement would be to stop that once it has generated all the users favourites.
+- The developer had realised that the cloudinary link wasn't reflecting each other in Heroku and env.py file, the developer has corrected this upon receiving initial feedback from assessors.
 
+## Corrections post assessor feedback
+The developer has taken into account the feedback from assessors after initial submission. The areas that have been corrected are:
+- Added deployment instructions
+- Corrected Heroku links
+- Rectified broken image links
+- Colour correction on hamburger menu to enhance visability. Added the following code to ensure dropdown menu was styled correctly:
+      .navbar-toggler {
+      background-color: aliceblue;
+      border: 0cap;
+    }
 
 ## Reusable Components
 
@@ -324,6 +336,86 @@ HTML, CSS, JS
 * [Favicon](https://favicon.io/) - To create favicon.
 * [Coolors](https://coolors.co/) - To create palette image to README.
 
+## Deployment and Local Development
+
+### Local Development
+
+When in development:
+run first ```nvn use 16.20.2``` to use this version of Node
+run ```npm start``` to start the app
+
+#### How to fork
+
+To fork the repository :
+
+1. Log in (sign up) to GitHub.
+2. Go to the repository for this project [fork-yeah](https://github.com/Dilsv/fork-yeah)
+3. Click the fork button in the top right corner.
+
+#### How to clone
+
+To clone the repository :
+
+1. Log in (sign up) to GitHub.
+2. Go to the repository for this project [fork-yeah](https://github.com/Dilsv/fork-yeah)
+3. Click on the code button, select one of the HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+### Deployment
+
+The site has been deployed using Heroku. Deployed site [Fork Yeah!](https://fork-yeah-1ed6fe420f34.herokuapp.com/). Follow these steps:
+
+I have used VSCode with [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) for developement so I'll describe the steps I took.
+
+* Create the repository.
+* On VScode connect to WSL.
+  * Clone the repository
+* Run the command ```npx create-react-app . --use-npm```
+* After it has finished run the command ```npm start``` to check if the app is working.
+* Git add, commit and push.
+
+#### Add the Heroku deployment commands
+
+In package.json file, in the “scripts” section, add the following prebuild command:
+
+```"heroku-prebuild": "npm install -g serve",```
+
+This will install a package needed to serve our single page application on heroku
+
+Add a Procfile at the root of the project with the following web command:
+
+```web: serve -s build```
+
+#### Connect to the API
+
+Navigate to the Heroku app of the project DRF-API, and under the Settings tab, add the following configvars:
+
+|KEY|VALUE|
+|--|--|
+|CLIENT_ORIGIN | <https://your-react-app-name.herokuapp.com>*|
+|CLIENT_ORIGIN_DEV | <https://gitpod-browser-link.ws-eu54.gitpod.io>*|
+
+*Check that the trailing slash \ at the end of both links has been removed.
+
+#### Heroku App
+
+If you don't already have an account to Heroku, create one [here](https://www.heroku.com/).
+
+* Create Heroku app
+  * Go to the Heroku dashboard and click the "Create new app" button.
+  * Name the app. Each app name on Heroku has to be unique.
+  * Then select your region.
+  * And then click "Create app".
+
+* In heroku app
+  * Go to the deploy tab.
+  * Choose the deployment method.
+  * Select Github, and confirm to connect to Github.
+  * Search for the Github repository name.
+  * Then click "connect".
+  * Scroll down and click "Deploy Branch".
+
 ## Testing
 Please see [Testing](TESTING.md)
 
@@ -333,4 +425,4 @@ My mentor [Mo Shami] for guidance, support and feedback during the project.
 
 My fellow Code Institute peer Vasileios Tsimourdagkas for feedback and support during the project. Also for providing an excellent guide how to write the TESTING.md.
 
-And my friends and family for hteir ongoing support during this project.
+And my friends and family for their ongoing support during this project.
