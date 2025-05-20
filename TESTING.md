@@ -35,9 +35,6 @@ I also had enabled the Flake8 linter and I had no errors or warnings.
 | 16 | /profiles/:id | PUT | If owner update the profile | ✅ |
 | 17 | /profiles/:id | DELETE | If owner delete the profile | ✅ |
 
-*POST method for /Recipes has been tested with Postman as I had to upload multiple images.
-
-[/Recipes POST](/documentation/testing/POST_Recipes.png)
 ___
 
 * [CSS](#css)
