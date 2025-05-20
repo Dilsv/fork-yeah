@@ -93,7 +93,8 @@ class RecipeIngredient(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Ensure that validation runs every time an instance is updated or created.
+        Ensure that validation runs every time an instance is updated
+        or created.
         """
         self.full_clean()  # This triggers all field validators
         super().save(*args, **kwargs)
