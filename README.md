@@ -366,37 +366,226 @@ To clone the repository :
 
 The site has been deployed using Heroku. Deployed site [Fork Yeah!](https://fork-yeah-1ed6fe420f34.herokuapp.com/). Follow these steps:
 
-I have used VSCode with [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) for developement so I'll describe the steps I took.
-
 * Create the repository.
 * On VScode connect to WSL.
   * Clone the repository
-* Run the command ```npx create-react-app . --use-npm```
-* After it has finished run the command ```npm start``` to check if the app is working.
-* Git add, commit and push.
 
-#### Add the Heroku deployment commands
+  #### ElephantSQL
 
-In package.json file, in the “scripts” section, add the following prebuild command:
+If you don't already have an account to ElephantSQL, create one [here](https://www.elephantsql.com).
 
-```"heroku-prebuild": "npm install -g serve",```
+* Create an external database with Code Institute or external database
 
-This will install a package needed to serve our single page application on heroku
+  * Log into Code Institute or external database platform [Code-Institute](https://dbs.ci-dbs.net/)
+  * Click "Create New Instance" (if external is being used) or input your email on the CI site
+  * Set up a plan by giving a Name and selecting a Plan / Create database
+  * Click "Select Region" and choose a Data center
+  * Click "Review", check all details and click "Create Instance"
+  * Return to the Dashboard and click on the database instance name / receive your link via email provided
+  * Copy the database URL
 
-Add a Procfile at the root of the project with the following web command:
+* Create a new repository
+* Clone the repository from VSCode
+* In VSC open the terminal and install the following using the ```pip install``` command.
 
-```web: serve -s build```
+```text
+'django<4'
+django-cloudinary-storage==0.3.0
+Pillow==8.2.0
+djangorestframework
+django-filter
+dj-rest-auth
+'dj-rest-auth[with_social]'
+djangorestframework-simplejwt
+dj_database_url psycopg2
+gunicorn
+django-cors-headers
+```
 
-#### Connect to the API
+* Create a Django project
 
-Navigate to the Heroku app of the project DRF-API, and under the Settings tab, add the following configvars:
+```text
+django-admin startproject project_name .
+```
 
-|KEY|VALUE|
-|--|--|
-|CLIENT_ORIGIN | <https://your-react-app-name.herokuapp.com>*|
-|CLIENT_ORIGIN_DEV | <https://gitpod-browser-link.ws-eu54.gitpod.io>*|
+#### Heroku App
 
-*Check that the trailing slash \ at the end of both links has been removed.
+If you don't already have an account to Heroku, create one [here](https://www.heroku.com/).
+
+* Create Heroku app
+  * Go to the Heroku dashboard and click the "Create new app" button.
+  * Name the app. Each app name on Heroku has to be unique.
+  * Then select your region.
+  * And then click "Create app".
+
+* In the IDE file explorer or terminal
+  * Create new env.py file on top level directory
+
+* In env.py
+  * Import os library
+  * Set environment variables
+  * Add database url
+  * Add in secret key
+
+```python
+import os
+
+os.environ['DEV'] = '1'
+os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"    
+os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"    
+os.environ["CLOUDINARY_URL"] = "Paste in the API Environment variable"
+```
+  
+If you don't already have an account to Cloudinary, create one [here](https://cloudinary.com/).
+
+* Cloudinary
+  * Go to the Cloudinary dashboard and copy the API Environment variable.
+  * Paste in env.py variable CLOUDINARY_URL(see above)
+
+* In settings.py and to the INSTALLED_APPS add :
+
+```python
+'cloudinary_storage',
+'django.contrib.staticfiles',
+'cloudinary',
+'rest_framework',
+'django_filters',
+'rest_framework.authtoken',
+'dj_rest_auth',
+'django.contrib.sites',
+'allauth',
+'allauth.account',
+'allauth.socialaccount',
+'dj_rest_auth.registration',
+'corsheaders',
+```
+
+* Import the database, the regular expression module & the env.py
+
+```python
+import dj_database_url
+import re
+import os
+if os.path.exists('env.py')
+    import env
+Below the import statements, add the following variable for Cloudinary:
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.ger('CLOUDINARY_URL')
+}
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinartStorage'
+```
+
+* Below INSTALLED_APPS, set site ID:
+
+```python
+SITE_ID = 1
+```
+
+* Below BASE_DIR, create the REST_FRAMEWORK, and include page pagination to improve app loading times, pagination count, and date/time format:
+
+```python
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )],
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DATETIME_FORMAT': '%d %b %Y',
+}
+```
+
+* Set the default renderer to JSON:
+
+```python
+if 'DEV' not in os.environ:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+```
+
+* Beneath that, add the following:
+
+```python
+REST_USE_JWT = True
+JWT_AUTH_SECURE = True
+JWT_AUTH_COOKIE = 'fork-yeah-auth'
+JWT_AUTH_REFRESH_COOKIE = 'fork-yeah-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
+```
+
+* Then add:
+
+```python
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'project_name.serializers.CurrentUserSerializer'
+}
+```
+
+* Update DEBUG variable to:
+
+```python
+DEBUG = 'DEV' in os.environ
+```
+
+* Update the DATABASES variable to:
+
+```python
+DATABASES = {
+    'default': ({
+       'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    } if 'DEV' in os.environ else dj_database_url.parse(
+        os.environ.get('DATABASE_URL')
+    )
+    )
+}
+```
+
+* Add the Heroku app to the ALLOWED_HOSTS variable:
+
+```python
+os.environ.get('ALLOWED_HOST'),
+'localhost',
+```
+
+Final requirements:
+
+* Create a Procfile, & add the following two lines:
+
+```text
+release: python manage.py makemigrations && python manage.py migrate
+web: gunicorn project_name.wsgi
+```
+
+* Migrate the database:
+
+```text
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+* Freeze requirements:
+
+```text
+pip3 freeze --local > requirements.txt
+```
+
+* In heroku app
+  * Go to the settings tab.
+  * In the settings click the button "Reveal Config Vars".
+  * Click Add and use
+
+    |KEY|VALUE|
+    |--|--|
+    |DATABASE_URL|Paste in ElephantSQL database URL|
+    |SECRET_KEY|Your own randomSecretKey|
+    |CLOUDINARY_URL|Paste in the API Environment variable|
+    |ALLOWED HOST|api-app-name.herokuapp.com|
 
 #### Heroku App
 
@@ -416,10 +605,184 @@ If you don't already have an account to Heroku, create one [here](https://www.he
   * Then click "connect".
   * Scroll down and click "Deploy Branch".
 
+#### Create React app
+
+The benefits of this include:
+- CORS will no longer be an issue as requests and responses will come from a shared base URL, both in your development and production environments.
+- You will be able to see the terminal logs for your API while interacting with the React side of your project in development, making debugging significantly easier.
+- You will be able to work on the development versions of both the API and the React project simultaneously.
+- With the front and back end applications on the same domain, Cookies (containing the JSONWebToken) required for authentication will not be blocked from being set on browsers that currently have cross-site tracking protection enabled by default. This change will allow authentication and authorisation to run in these browsers without errors
+- When you have finished these steps, you will have a working development environment, built on the existing workspace for your DRF API, which will include a folder containing your starting React code. You will be able to run both sections of this project in separate terminals.
+- There are further steps for combining the two projects under one terminal for final deployment, these are in a separate document.
+
+These steps will show you how to set up a new React application inside the workspace and repository for your DRF project.
+1. Open the workspace for your DRF project
+2. Open the terminal window and create a new folder called frontend in the root directory
+
+mkdir frontend
+3. Change directory to be inside the frontend folder with the following command
+
+cd frontend
+4. Make sure that Node.js v16 is installed and selected on your machine.
+5. From inside the frontend directory, run the following command to create a new React app and install all the working dependencies used in the Moments application
+
+npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm
+6. Enter y to confirm and then click enter
+7. Wait for all dependencies to be installed. This installation will take some time, the terminal may appear to freeze for a few minutes. Once it does start to show activity you can ignore any deprecated warnings, these are extremely common and expected with npm installs. The developer needs to make sure to verify that you are in the frontend directory by using the pwd command. Running the next step from your workspace in the wrong working directory is dangerous.
+8. Enter the following command to remove the .git folder, .gitignore file and README.md from the frontend folder as these already exist within the root directory of your DRF project
+
+If you are using PowerShell as your VS Code terminal shell:
+
+rm ".git", ".gitignore", "README.md" -Recurse -Force
+
+Otherwise:
+
+rm -rf .git .gitignore README.md
+9. When you have completed these steps, your file structure should have a frontend folder including node modules, src, public, package-lock.json and package.json.
+10. From inside the frontend directory, run the following command to check that the basic React app is running
+
+npm start
+11. Once the npm build finishes successfully, the React app should open automatically in the browser. If the app doesn’t open automatically, you can open it by pressing and holding CTRL (Windows) or CMD (MacOS) and clicking on the localhost URL displayed in the terminal
+12. Stop the running application with CTRL-C in the terminal for a Windows machine, or CMD-C on a Mac
+13. Move back to the root directory of your project with the following command
+
+cd ..
+14. Inside the frontend folder, the node_modules folder will contain all the React dependencies that you will install during the development of your React app. By the end of your project, the folder will contain a huge number of dependencies and sub-dependencies, so you don’t want it tracked by Git nor pushed to GitHub.
+
+Open the .gitignore file in the root of your project, and add the node_modules folder to it, prepended by ** to make sure the folder is ignored regardless of which folder or subfolder it is located in.
+
+**node_modules/
+
+At this stage, ensure that the initial commit takes place.
+
+### Determining your local development environment URL
+To determine what your development environment URL is for the subsequent steps, run the server with python3 manage.py runserver and check the URL output in the terminal next to “Starting development server at”.
+Stop the server (CTRL+C on Windows or CMD+C on MacOS) when done.
+
+### Preparing your Environment Variables
+In your env.py file, make the following changes
+1. Comment out the DEV environment variable. This ensures that the application will respond with JSON
+2. Remove the CLIENT_ORIGIN_DEV environment variable, if you have it
+3. Add a new key DEBUG with a value of ‘1’
+
+This will allow you to see Django's logs in the terminal while keeping your JSON responses and will give you a clearer view of errors for debugging across the two parts of the project.
+
+4. Add a new key ALLOWED_HOST with the value of your development environment URL, wrapped in quotes
+
+Ensure you remove the http:// from the beginning, and the trailing slash / from the end of the development environment URL.
+
+5. Ensure you have a key for DATABASE_URL set to the value of your PostgreSQL from Code Institute database URL
+
+6. Ensure you have a key for CLOUDINARY_URL set to the value of your Cloudinary URL
+
+### Installing urllib3
+Open your requirements.txt file and check whether it contains the urllib3 dependency. If it does, you can skip this part. If it does not, please proceed.
+urllib3 is installed automatically with more recent versions of Cloudinary, however if you're using an older version of Cloudinary, urllib3 may not have come with it, so you need to install it manually.
+
+1. Ensure your terminal location is in the root directory, then install urllib3 with the following command
+
+pip3 install urllib3==1.26.15
+
+2. Add this dependency to your requirements.txt file with the following command
+
+pip3 freeze > requirements.txt
+
+### Revert psycopg2-binary to psycopg2
+This part only applies if you had to install urllib3 and update requirements.txt in the previous step. If not, please skip this part and proceed to the next section of this guide.
+
+In requirements.txt, locate the line with the dependency psycopg2-binary.
+psycopg2-binary==2.x.x
+
+In the line, manually delete the -binary part, leaving the rest (including the version number) unchanged, like this:
+psycopg2==2.x.x
+
+Remember to save the file.
+
+In settings.py file:
+1. Set DEBUG to the value of the DEBUG environment variable and update ALLOWED_HOSTS to include the ALLOWED_HOST environment variable added to your env.py file
+
+Our unified workspace will now serve both the API and the React app, running on separate ports. As a result, in order for both apps to communicate successfully with each other while running on different ports, we will add a proxy to the React application’s package.json. This allows the React app to “pretend” it is making requests from the same port as the server and removes cross-domain issues.
+
+# package.json
+Open the package.json file in the frontend directory, and at the bottom of the file, add a new key to the JSON object
+
+"proxy": "http://localhost:8000/"
+
+Your code is now set up so that you can follow along with what you learned in the Moments walkthrough. There is one final difference between the Moments walkthrough setup and what you will need for this combined workspace. That is you will not need the BaseURL setting in the axiosDefaults.js file when it is created. This is because the combined workspace will receive the JSON from the API from the same URL, just on a different port (which was set with the proxy above).
+
+So, to ensure you don’t forget this, let’s create the empty axiosDefaults.js file now and leave a comment as a reminder.
+
+# axiosDefaults.js
+1. From the root directory of your project, cd into the src folder with the following command
+
+cd frontend/src
+
+2. From inside the src folder, create a new directory called api with the following command
+
+mkdir api
+
+3. Change directory into your new api folder
+
+cd api
+
+4. From inside the api folder, create a new file called axiosDefaults.js with the following command
+
+touch axiosDefaults.js
+
+5. Move back to the root folder with the following command
+
+cd ../../../
+
+6. Open the axiosDefaults.js file from the file explorer, and add the following comment to it
+
+ // IMPORTANT!!
+ // Because this React app is running in the same workspace as the API,
+
+ // there is no need to set a separate baseURL until you reach deployment.
+
+ // Setting a baseURL before you reach deployment will cause errors
+This would be a good point to commit your changes again.
+
+# Running the Application
+1. Open two terminals, side by side
+2. Terminal 1 should be in the root directory where the Django API will run. From here, type the command to run the Django API
+
+python3 manage.py runserver
+
+During development, in order for your React project to access your development API, the Django server must be running, so ensure to run this first before terminal 2.
+3. Terminal 2 should be in the frontend directory. To enter that directory from the root, type the following command
+
+cd frontend
+
+Then run the React server with the following command:
+
+npm start
+
+Whenever you want to run your React code, ensure that you have cd-ed into the frontend directory before running the npm start command, and that the Django server is already running the API.
+
+4. Wait for the npm build to complete, this can take a few minutes when running it for the first time in a recently opened workspace
+5. The Django API will run on Port 8000, and the React application will run on Port 8080, or Port 3000 depending on which IDE you are using
+6. Once the npm build finishes successfully, the React app should open automatically in the browser. If the app doesn’t open automatically, you can open it by pressing and holding CTRL (Windows) or CMD (MacOS) and clicking on the localhost URL displayed in the React terminal (Terminal 2).
+7. Ensure you have saved, committed and pushed all of your code to GitHub
+
+<!-- #### Add the Heroku deployment commands
+
+In package.json file, in the “scripts” section, add the following prebuild command:
+
+```"heroku-prebuild": "npm install -g serve",```
+
+This will install a package needed to serve our single page application on heroku
+
+Add a Procfile at the root of the project with the following web command:
+
+```web: serve -s build```
+
+*Check that the trailing slash \ at the end of both links has been removed. --> and then do the https://code-institute-students.github.io/advfe-unified-workspace/deployment/01-adding-the-route
+
 ## Testing
 Please see [Testing](TESTING.md)
 
-### Aknowledgments
+### Aknowledgements
 
 My mentor [Mo Shami] for guidance, support and feedback during the project.
 
