@@ -32,6 +32,8 @@ const UserPasswordForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  const [success, setSuccess] = useState(false);
+
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -51,7 +53,11 @@ const UserPasswordForm = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
-      history.goBack();
+      setSuccess(true) 
+            setTimeout(() => { 
+                setSuccess(false); 
+                history.goBack();
+            }, 2500);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -61,6 +67,20 @@ const UserPasswordForm = () => {
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
+        {success && (
+                        <Alert
+                            variant="info"
+                            className="w-100"
+                        >
+
+                            <p className="text-center">
+                                Passord updated successfully!
+                            </p>
+                            <p className="text-center">
+                                You will be redirected to the profile page.
+                            </p>
+                        </Alert>
+                    )}
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>New password</Form.Label>
