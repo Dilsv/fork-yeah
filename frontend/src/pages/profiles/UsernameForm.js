@@ -33,6 +33,8 @@ const UsernameForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  const [success, setSuccess] = useState(false);
+
   // Gets the user's username from the API and sets the username state.
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
@@ -53,7 +55,11 @@ const UsernameForm = () => {
         ...prevUser,
         username,
       }));
-      history.goBack();
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+        history.goBack();
+      }, 2500);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -63,6 +69,14 @@ const UsernameForm = () => {
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
+          {success && (
+            <Alert variant="info" className="w-100">
+              <p className="text-center">Passord updated successfully!</p>
+              <p className="text-center">
+                You will be redirected to the profile page.
+              </p>
+            </Alert>
+          )}
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
               <Form.Label>Change username</Form.Label>
