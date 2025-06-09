@@ -363,44 +363,13 @@ To clone the repository :
 5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
 
 ### Deployment
+## Database
 
 The site has been deployed using Heroku. Deployed site [Fork Yeah!](https://fork-yeah-1ed6fe420f34.herokuapp.com/). Follow these steps:
 
 * Create the repository.
 * On VScode connect to WSL.
   * Clone the repository
-
-  #### ElephantSQL
-
-If you don't already have an account to ElephantSQL, create one [here](https://www.elephantsql.com).
-
-* Create an external database with Code Institute or external database
-
-  * Log into Code Institute or external database platform [Code-Institute](https://dbs.ci-dbs.net/)
-  * Click "Create New Instance" (if external is being used) or input your email on the CI site
-  * Set up a plan by giving a Name and selecting a Plan / Create database
-  * Click "Select Region" and choose a Data center
-  * Click "Review", check all details and click "Create Instance"
-  * Return to the Dashboard and click on the database instance name / receive your link via email provided
-  * Copy the database URL
-
-* Create a new repository
-* Clone the repository from VSCode
-* In VSC open the terminal and install the following using the ```pip install``` command.
-
-```text
-'django<4'
-django-cloudinary-storage==0.3.0
-Pillow==8.2.0
-djangorestframework
-django-filter
-dj-rest-auth
-'dj-rest-auth[with_social]'
-djangorestframework-simplejwt
-dj_database_url psycopg2
-gunicorn
-django-cors-headers
-```
 
 * Create a Django project
 
@@ -470,7 +439,7 @@ if os.path.exists('env.py')
     import env
 Below the import statements, add the following variable for Cloudinary:
 CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': os.environ.ger('CLOUDINARY_URL')
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
 
 MEDIA_URL = '/media/'
@@ -582,7 +551,7 @@ pip3 freeze --local > requirements.txt
 
     |KEY|VALUE|
     |--|--|
-    |DATABASE_URL|Paste in ElephantSQL database URL|
+    |DATABASE_URL|Paste in database URL|
     |SECRET_KEY|Your own randomSecretKey|
     |CLOUDINARY_URL|Paste in the API Environment variable|
     |ALLOWED HOST|api-app-name.herokuapp.com|
@@ -888,7 +857,7 @@ Due to a Heroku automation, Heroku automatically assigns you a paid-for Postgres
 3. Select Delete Add-on.
 4. Type in your app name, then click Remove add-on.
 
-Full deployment pulishd on the Code Institute course site.
+Full deployment pulished on the Code Institute course site.
 
 ## Testing
 Please see [Testing](TESTING.md)
