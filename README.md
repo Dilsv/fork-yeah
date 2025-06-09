@@ -765,7 +765,7 @@ Whenever you want to run your React code, ensure that you have cd-ed into the fr
 6. Once the npm build finishes successfully, the React app should open automatically in the browser. If the app doesn’t open automatically, you can open it by pressing and holding CTRL (Windows) or CMD (MacOS) and clicking on the localhost URL displayed in the React terminal (Terminal 2).
 7. Ensure you have saved, committed and pushed all of your code to GitHub
 
-<!-- #### Add the Heroku deployment commands
+#### Add the Heroku deployment commands
 
 In package.json file, in the “scripts” section, add the following prebuild command:
 
@@ -777,7 +777,118 @@ Add a Procfile at the root of the project with the following web command:
 
 ```web: serve -s build```
 
-*Check that the trailing slash \ at the end of both links has been removed. --> and then do the https://code-institute-students.github.io/advfe-unified-workspace/deployment/01-adding-the-route
+*Check that the trailing slash \ at the end of both links has been removed.
+
+### Adding Routes
+In the urls.py file of your Django Rest Framework application:
+1. Remove the root_route view from the .views imports
+2. Import the TemplateView from the generic Django views
+
+ from django.views.generic import TemplateView
+3. In the url_patterns list, remove the root_route code and replace it with the TemplateView pointing to the index.html file
+
+ path('', TemplateView.as_view(template_name='index.html')),
+4. At the bottom of the file, add the 404 handler to allow React to handle 404 errors
+ handler404 = TemplateView.as_view(template_name='index.html')
+5. Add api/ to the beginning of all the API URLs, excluding the path for the home page and admin panel
+
+In axiosDefault.js:
+
+1. Now that we have changed the base path for the API route, we need to prepend all API requests in our react application with /api. Open the axiosDefaults.js file, comment back in the axios.defaults.baseURL and set it to "/api"
+2. Ensure to commit changes made so far
+
+Compiling the static files:
+1. Collect the admin and DRF staticfiles to the empty staticfiles directory you created earlier, with the following command in the terminal
+
+ python3 manage.py collectstatic
+2. Next, we will compile the React application and move its files to the staticfiles folder. In another terminal, cd into the frontend directory
+
+ cd frontend
+3. Make sure that Node.js v16 is installed and selected on your machine.
+4. Then run the command(s) to compile and move the React files
+
+If you are using VS Code Terminal:
+npm run build && mv build ../staticfiles/.
+
+You will need to re-run this command any time you want to deploy changes to the static files in your project, including the React code. To do this, you need to delete the existing build folder and rebuild it.
+
+To delete the old folder and replace it with the new one:
+
+If you are using PowerShell, run these commands in sequence, waiting for each one to finish before you run the next one:
+
+npm run build
+
+rm "../staticfiles/build" -Recurse -Force
+
+mv build ../staticfiles/.
+
+
+Otherwise, run the single command:
+
+npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.
+5. Now your staticfiles folder should be filled with all the static files needed for deployment. These could be as follows/ It may differ based on the dependancy version being used:
+  - staticfiles
+    - admin
+    - build
+    - html
+    - js
+    - rest_framework
+
+Adding runtime.txt file:
+1. This will ensure Heroku uses the correct version of Python to deploy your project.
+
+In the root directory of your project, create a new file named runtime.txt
+
+Inside the runtime.txt, add the following line:
+
+python-3.12.8
+2. Reverting psycopg2-binary to psycopg2
+
+There is an updated requirements.txt with pip freeze in a previous step and this will have restored psycopg2-binary (that we have installed in our workspace for development) to the file. However, psycopg2-binary will not work well in the deployed app, so we need to revert to the production-grade psycopg2 before we do the final push to GitHub for deployment in the next section.
+
+In requirements.txt, locate the line with the dependency psycopg2-binary.
+
+psycopg2-binary==2.x.x
+In the line, manually delete the -binary part, leaving the rest (including the version number) unchanged, like this:
+
+psycopg2==2.x.x
+Remember to save the file.
+3. Testing the build:
+Now that all the settings are in place, we can test that the builds for both parts of the project are running together on the same server port.
+
+  1. Ensure all running servers are terminated. In any running terminals press Ctrl+C
+
+  2. In your env.py file, ensure that both the DEBUG and DEV environment variables are commented out
+
+  3. Run the Django server, in the terminal type
+
+      python3 manage.py runserver
+  4. To check that your application is running, open it in the browser with CTRL+click (Windows) or CMD+click (MacOS) on the localhost URL in the terminal.
+     The React server should not be running. This is a test to check that Django is serving the React static files.
+     With that done, make sure to commit and push your changes. You are now ready to deploy the project to Heroku.
+
+# Preparing for Deployment
+If you have not deployed this application to Heroku before, you can find most of the steps for this in the Deployment section of the Django REST Framework module. Please ensure that you have added those settings, plus the additional ones below.
+
+1. Log into your Heroku account and access the dashboard for your DRF application
+2. Go to Settings and open the Config Vars
+3. Ensure your application has an ALLOWED_HOST key, set to the URL of your combined project, remove the https:// at the beginning and remove the trailing slash at the end
+4. Ensure your application has a CLIENT_ORIGIN key and set it to the URL of your combined project. This time keep the https:// at the beginning but remove the trailing slash at the end
+5. If your application still has a CLIENT_ORIGIN_DEV key set, delete the variable by clicking on the “X” icon next to it.
+6. Ensure all your settings are in place, including the ones from the Deployment section of the Django REST Framework module. Including saving, committing and pushing any changes made to your code
+7. Deploy your application from the Deploy tab in your Heroku dashboard
+
+Deleting the Heroku Postgres add-on:
+Heroku automatically attaches this add-on only upon the first deployment of a Django app. If you then delete the add-on, Heroku won't reattach it on any subsequent deployment. Therefore the steps below apply to you only if you are deploying this app for the very first time. Otherwise, you can ignore this section.
+
+Due to a Heroku automation, Heroku automatically assigns you a paid-for Postgres database add-on despite the fact that you are not using their database service for your application. To prevent getting charged for this add-on, you can remove it with the following steps.
+
+1. In your Heroku app dashboard, click the Resources tab.
+2. Next to Heroku Postgres, click the chevron button on the far right.
+3. Select Delete Add-on.
+4. Type in your app name, then click Remove add-on.
+
+Full deployment pulishd on the Code Institute course site.
 
 ## Testing
 Please see [Testing](TESTING.md)
